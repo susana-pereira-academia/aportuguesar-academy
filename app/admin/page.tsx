@@ -4,6 +4,7 @@ import { AdicionarAluna } from "@/components/admin/adicionar-aluna";
 import { requerMentora } from "@/lib/auth";
 import { getAlunasComProgresso } from "@/lib/data/admin";
 import { formatarData } from "@/lib/utils";
+import { VOC } from "@/lib/vocabulario";
 import { Users, TrendingUp, Clock, Layers, Calendar } from "lucide-react";
 import Link from "next/link";
 
@@ -29,12 +30,12 @@ export default async function AdminPage() {
         <div className="max-w-6xl mx-auto px-6 py-12">
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 gold-divider" />
-              <p className="text-[10px] tracking-[0.3em] uppercase text-gold-600">
+              <div className="w-8 dourado-divider" />
+              <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600">
                 Painel da mentora
               </p>
             </div>
-            <h1 className="font-serif italic text-4xl sm:text-5xl gold-text-rich mb-3">
+            <h1 className="font-serif italic text-4xl sm:text-5xl noite-text-rich mb-3">
               As tuas alunas
             </h1>
           </div>
@@ -42,21 +43,23 @@ export default async function AdminPage() {
           <div className="flex flex-wrap gap-3 mb-8">
             <Link
               href="/admin/conteudos"
-              className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-cream-50 gold-border gold-shadow hover:bg-gold-50 transition-all group"
+              className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-areia-50 noite-border noite-shadow hover:bg-noite-50 transition-all group"
             >
-              <Layers className="w-4 h-4 text-gold-600" />
-              <span className="text-sm font-medium text-ink">Gerir estações e aulas</span>
-              <span className="text-xs text-ink-faint ml-2 group-hover:text-gold-700 transition-colors">
+              <Layers className="w-4 h-4 text-noite-600" />
+              <span className="text-sm font-medium text-ink">
+                Gerir {VOC.estacao.pMin} e {VOC.conteudo.pMin}
+              </span>
+              <span className="text-xs text-ink-faint ml-2 group-hover:text-noite-700 transition-colors">
                 →
               </span>
             </Link>
             <Link
               href="/admin/agenda"
-              className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-cream-50 gold-border gold-shadow hover:bg-gold-50 transition-all group"
+              className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-areia-50 noite-border noite-shadow hover:bg-noite-50 transition-all group"
             >
-              <Calendar className="w-4 h-4 text-gold-600" />
+              <Calendar className="w-4 h-4 text-noite-600" />
               <span className="text-sm font-medium text-ink">Gerir agenda</span>
-              <span className="text-xs text-ink-faint ml-2 group-hover:text-gold-700 transition-colors">
+              <span className="text-xs text-ink-faint ml-2 group-hover:text-noite-700 transition-colors">
                 →
               </span>
             </Link>
@@ -69,7 +72,7 @@ export default async function AdminPage() {
               icone={Users}
               titulo="Alunas registadas"
               valor={totalAlunas}
-              cor="gold"
+              cor="noite"
             />
             <MetricCard
               icone={TrendingUp}
@@ -86,9 +89,9 @@ export default async function AdminPage() {
             />
           </div>
 
-          <div className="rounded-2xl bg-cream-50 gold-border-rich gold-shadow overflow-hidden">
+          <div className="rounded-2xl bg-areia-50 noite-border-rich noite-shadow overflow-hidden">
             <table className="w-full">
-              <thead className="border-b border-gold-200">
+              <thead className="border-b border-noite-200">
                 <tr>
                   <Th>Aluna</Th>
                   <Th>Email</Th>
@@ -108,12 +111,12 @@ export default async function AdminPage() {
                   alunas.map((a) => (
                     <tr
                       key={a.id}
-                      className="border-b border-gold-100 last:border-0 hover:bg-gold-50/40 transition-colors"
+                      className="border-b border-noite-100 last:border-0 hover:bg-noite-50/40 transition-colors"
                     >
                       <Td>
                         <Link
                           href={`/admin/alunas/${a.id}`}
-                          className="font-serif italic text-lg text-ink hover:text-gold-700 transition-colors"
+                          className="font-serif italic text-lg text-ink hover:text-noite-700 transition-colors"
                         >
                           {a.nome ?? "—"}
                         </Link>
@@ -134,7 +137,7 @@ export default async function AdminPage() {
                       <Td right>
                         <Link
                           href={`/admin/alunas/${a.id}`}
-                          className="font-serif italic text-base text-gold-700 hover:underline"
+                          className="font-serif italic text-base text-noite-700 hover:underline"
                         >
                           {a.conteudos_feitos}/{a.conteudos_totais}
                         </Link>
@@ -162,23 +165,23 @@ function MetricCard({
   icone: React.ElementType;
   titulo: string;
   valor: number;
-  cor: "gold" | "success" | "warn";
+  cor: "noite" | "success" | "warn";
   nota?: string;
 }) {
   const corMap = {
-    gold: "text-gold-700 bg-gold-gradient",
-    success: "text-success bg-cream-100",
+    noite: "text-noite-700 bg-noite-gradient",
+    success: "text-success bg-areia-100",
     warn: "text-amber-700 bg-amber-50",
   };
   return (
-    <div className="rounded-2xl bg-cream-50 gold-border gold-shadow p-6">
+    <div className="rounded-2xl bg-areia-50 noite-border noite-shadow p-6">
       <div className={`w-11 h-11 rounded-full flex items-center justify-center mb-4 ${corMap[cor]}`}>
         <Icone className="w-5 h-5" />
       </div>
       <p className="text-[10px] tracking-[0.3em] uppercase text-ink-faint mb-1">
         {titulo}
       </p>
-      <p className="font-serif italic text-4xl gold-text-rich">{valor}</p>
+      <p className="font-serif italic text-4xl noite-text-rich">{valor}</p>
       {nota && <p className="text-[11px] text-ink-faint mt-1">{nota}</p>}
     </div>
   );
@@ -187,7 +190,7 @@ function MetricCard({
 function Th({ children, right = false }: { children: React.ReactNode; right?: boolean }) {
   return (
     <th
-      className={`px-6 py-4 text-[10px] tracking-[0.2em] uppercase text-gold-600 font-medium ${
+      className={`px-6 py-4 text-[10px] tracking-[0.2em] uppercase text-noite-600 font-medium ${
         right ? "text-right" : "text-left"
       }`}
     >

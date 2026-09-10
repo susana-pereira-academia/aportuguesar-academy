@@ -13,10 +13,10 @@ export default async function GravacoesPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 lg:px-10 py-10">
       <div className="mb-8">
-        <p className="text-[10px] tracking-[0.3em] uppercase text-gold-600 mb-2">
+        <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-2">
           Encontros já realizados
         </p>
-        <h1 className="font-serif italic text-4xl sm:text-5xl gold-text-rich mb-3">
+        <h1 className="font-serif italic text-4xl sm:text-5xl noite-text-rich mb-3">
           Gravações
         </h1>
         <p className="text-sm text-ink-soft">
@@ -25,9 +25,9 @@ export default async function GravacoesPage() {
       </div>
 
       {comGravacao.length === 0 ? (
-        <div className="rounded-2xl bg-cream-50 gold-border p-10 text-center">
-          <Video className="w-8 h-8 text-gold-500 mx-auto mb-3" />
-          <p className="font-serif italic text-xl gold-text-rich mb-2">
+        <div className="rounded-2xl bg-areia-50 noite-border p-10 text-center">
+          <Video className="w-8 h-8 text-noite-500 mx-auto mb-3" />
+          <p className="font-serif italic text-xl noite-text-rich mb-2">
             Ainda sem gravações
           </p>
           <p className="text-sm text-ink-soft">
@@ -47,7 +47,7 @@ export default async function GravacoesPage() {
 
 function CardGravacao({ encontro }: { encontro: Encontro }) {
   return (
-    <article className="rounded-2xl bg-cream-50 gold-border gold-shadow overflow-hidden">
+    <article className="rounded-2xl bg-areia-50 noite-border noite-shadow overflow-hidden">
       <div className="aspect-video bg-ink">
         <iframe
           src={`https://player.vimeo.com/video/${encontro.vimeo_id}?byline=0&portrait=0&title=0`}
@@ -57,7 +57,7 @@ function CardGravacao({ encontro }: { encontro: Encontro }) {
         />
       </div>
       <div className="p-6">
-        <p className="text-[10px] tracking-[0.3em] uppercase text-gold-600 mb-2">
+        <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-2">
           {new Date(encontro.data_inicio).toLocaleDateString("pt-PT", {
             day: "2-digit",
             month: "long",
@@ -65,7 +65,7 @@ function CardGravacao({ encontro }: { encontro: Encontro }) {
           })}{" "}
           · {encontro.duracao_min} min
         </p>
-        <h2 className="font-serif italic text-2xl gold-text-rich mb-2">
+        <h2 className="font-serif italic text-2xl noite-text-rich mb-2">
           {encontro.titulo}
         </h2>
         {encontro.descricao && (

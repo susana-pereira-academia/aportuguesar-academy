@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { PLATAFORMA } from "@/lib/config";
+import { VOC } from "@/lib/vocabulario";
 import { requerUtilizador } from "@/lib/auth";
 import { getEstacoesComConteudos } from "@/lib/data/jornada";
 
@@ -24,18 +24,18 @@ export default async function JornadaHome() {
     <div className="flex items-center justify-center min-h-[70vh] px-6 py-16 text-center">
       <div className="max-w-md">
         <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="w-8 gold-divider" />
-          <p className="text-[10px] tracking-[0.3em] uppercase text-gold-600">
+          <div className="w-8 dourado-divider" />
+          <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600">
             Olá, {nomeAluna}
           </p>
-          <div className="w-8 gold-divider" />
+          <div className="w-8 dourado-divider" />
         </div>
-        <h1 className="font-serif italic text-3xl gold-text-rich mb-4">
+        <h1 className="font-serif italic text-3xl noite-text-rich mb-4">
           O teu lugar está a ser preparado.
         </h1>
         <p className="text-sm text-ink-soft">
-          As {PLATAFORMA.vocabulario.estacoes.toLowerCase()} vão sendo abertas.
-          Volta em breve.
+          {VOC.estacao.g("Os", "As")} {VOC.estacao.pMin} vão sendo{" "}
+          {VOC.estacao.g("abertos", "abertas")}. Volta em breve.
         </p>
       </div>
     </div>

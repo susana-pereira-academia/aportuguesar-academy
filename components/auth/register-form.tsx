@@ -53,11 +53,11 @@ export function RegisterForm() {
   if (sucesso) {
     return (
       <div className="text-center space-y-4">
-        <p className="font-serif italic text-2xl gold-text-rich">Conta criada.</p>
+        <p className="font-serif italic text-2xl noite-text-rich">Conta criada.</p>
         <p className="text-ink-soft">
           Confirma o teu email — enviámos-te um link para ativares a conta.
         </p>
-        <Link href="/login" className="text-gold-700 hover:text-gold-600 font-medium">
+        <Link href="/login" className="text-noite-700 hover:text-noite-600 font-medium">
           Voltar ao login
         </Link>
       </div>
@@ -107,7 +107,7 @@ export function RegisterForm() {
       </Button>
       <p className="text-center text-sm text-ink-soft">
         Já tens conta?{" "}
-        <Link href="/login" className="text-gold-700 hover:text-gold-600 font-medium">
+        <Link href="/login" className="text-noite-700 hover:text-noite-600 font-medium">
           Entrar
         </Link>
       </p>

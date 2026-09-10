@@ -31,13 +31,19 @@ export const PLATAFORMA = {
    *  para não ficar escrita no repositório. Ver .env.local e o Vercel. */
   passwordInicial: "",
 
-  /** Vocabulário que usas para os blocos da tua jornada. */
+  /** Vocabulário que usas para os blocos da tua jornada.
+   *  Muda aqui e o site inteiro acompanha — ver lib/vocabulario.ts. */
   vocabulario: {
-    /** Nome plural do nível 1 — ex: "Módulos", "Estações", "Blocos", "Programas" */
-    estacoes: "Estações",
-    estacao: "Estação",
+    /** Nome plural do nível 1 — ex: "Níveis", "Módulos", "Estações", "Blocos" */
+    estacoes: "Níveis",
+    estacao: "Nível",
+    /** Género do nível 1: "m" para "o nível", "f" para "a estação".
+     *  É isto que faz o UI escrever "Novo nível" e não "Nova nível". */
+    generoEstacao: "m",
     /** Nome plural do nível 2 (o conteúdo dentro) — ex: "Aulas", "Vídeos", "Desafios" */
     conteudos: "Aulas",
     conteudo: "Aula",
+    /** Género do nível 2: "f" para "a aula", "m" para "o vídeo". */
+    generoConteudo: "f",
   },
 } as const;

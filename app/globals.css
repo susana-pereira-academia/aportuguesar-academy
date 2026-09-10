@@ -4,31 +4,44 @@
 
 @layer base {
   :root {
-    /* Paleta editorial creme+dourado */
-    --cream-50: #FDFBF5;
-    --cream-100: #F8F4E9;
-    --cream-200: #F0E9D5;
+    /* ==========================================================
+       Paleta SP Academia — Manual de Branding (01. Identidade/Branding)
+       Azul Noite #020C50 · Azul Real #03129F · Areia #D7BE9D
+       Dourado #C9A84C · Branco #FFFFFF
+       O dourado é ACENTO, nunca protagonista.
+       ========================================================== */
 
-    --gold-50: #FBF6E8;
-    --gold-100: #F5EBC9;
-    --gold-200: #EDD996;
-    --gold-300: #E0C36A;
-    --gold-500: #C9A44C;
-    --gold-600: #B8912E;
-    --gold-700: #997722;
-    --gold-800: #7A5F1B;
+    /* Azuis — a cor principal da marca */
+    --noite-50: #F4F6FC;
+    --noite-100: #E6EBF7;
+    --noite-200: #C8D1EC;
+    --noite-300: #9AA8DC;
+    --noite-400: #6172C7;
+    --noite-500: #2C3FB0;
+    --noite-600: #03129F; /* Azul Real */
+    --noite-700: #02116F;
+    --noite-800: #020C50; /* Azul Noite */
 
-    --ink: #2A2620;
-    --ink-soft: #4A423A;
-    --ink-faint: #7A6E5F;
+    /* Areia — calor, fundos, elegância natural */
+    --areia-50: #FDFBF8;
+    --areia-100: #F6F0E7;
+    --areia-200: #EADFCC;
+    --areia-300: #D7BE9D; /* Areia */
 
-    --success: #4B7A50;
+    /* Dourado — acento de excelência, com parcimónia */
+    --dourado-200: #EFE1BC;
+    --dourado-400: #DCC079;
+    --dourado-500: #C9A84C; /* Dourado */
+    --dourado-700: #9C7F31;
 
-    /* Fontes: aluna pode trocar via next/font se quiser */
-    --font-serif: "Georgia", serif;
-    --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    /* Texto — neutros derivados do Azul Noite */
+    --ink: #1B2140;
+    --ink-soft: #4A5478;
+    --ink-faint: #8189A6;
 
-    --background: var(--cream-50);
+    --success: #2F6B4F;
+
+    --background: var(--areia-50);
     --foreground: var(--ink);
   }
 
@@ -40,58 +53,71 @@
   body {
     color: var(--foreground);
     background: var(--background);
-    font-family: var(--font-sans);
+    font-family: var(--font-sans), system-ui, sans-serif;
   }
 
   ::selection {
-    background: var(--gold-200);
-    color: var(--ink);
+    background: var(--noite-100);
+    color: var(--noite-800);
   }
 }
 
 @layer components {
-  .gold-border {
+  /* --- Filetes e molduras ------------------------------------ */
+  .noite-border {
     border-width: 1px;
-    border-color: rgba(237, 217, 150, 0.6); /* gold-200 a 60% */
+    border-color: rgba(200, 209, 236, 0.7); /* noite-200 */
   }
 
-  .gold-border-rich {
+  .noite-border-rich {
     border-width: 1px;
-    border-color: rgba(224, 195, 106, 0.7); /* gold-300 a 70% */
+    border-color: rgba(154, 168, 220, 0.6); /* noite-300 */
   }
 
-  .gold-text-rich {
-    background: linear-gradient(135deg, var(--gold-700), var(--gold-600), var(--gold-800));
+  /* --- Títulos ------------------------------------------------ */
+  .noite-text-rich {
+    background: linear-gradient(135deg, var(--noite-800), var(--noite-600), var(--noite-800));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .gold-divider {
+  /* --- Separador: aqui sim, o dourado ------------------------- */
+  .dourado-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+    background: linear-gradient(90deg, transparent, var(--dourado-500), transparent);
   }
 
-  .gold-shadow {
+  /* --- Sombras (tingidas de azul, não de dourado) ------------- */
+  .noite-shadow {
     box-shadow:
-      0 1px 3px rgba(184, 145, 46, 0.08),
-      0 4px 12px rgba(184, 145, 46, 0.06);
+      0 1px 3px rgba(2, 12, 80, 0.06),
+      0 4px 12px rgba(2, 12, 80, 0.05);
   }
 
-  .gold-shadow-lg {
+  .noite-shadow-lg {
     box-shadow:
-      0 4px 12px rgba(184, 145, 46, 0.10),
-      0 12px 32px rgba(184, 145, 46, 0.08);
+      0 4px 12px rgba(2, 12, 80, 0.08),
+      0 12px 32px rgba(2, 12, 80, 0.06);
   }
 
-  .gold-glow-hover {
+  .noite-glow-hover {
     transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
 
-  .gold-glow-hover:hover {
+  .noite-glow-hover:hover {
     box-shadow:
-      0 8px 20px rgba(184, 145, 46, 0.14),
-      0 20px 40px rgba(184, 145, 46, 0.10);
+      0 8px 20px rgba(2, 12, 80, 0.12),
+      0 20px 40px rgba(2, 12, 80, 0.08);
     transform: translateY(-2px);
+  }
+
+  /* --- Azulejo português -------------------------------------
+     Elemento central e não removível da marca (Manual de Branding).
+     Padrão ténue, para fundos amplos — nunca por baixo de texto denso. */
+  .azulejo {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%23020C50' stroke-width='1.1' opacity='0.09'%3E%3Cpath d='M24 3C31 10 38 17 45 24 38 31 31 38 24 45 17 38 10 31 3 24 10 17 17 10 24 3Z'/%3E%3Cpath d='M24 14C27 17 31 21 34 24 31 27 27 31 24 34 21 31 17 27 14 24 17 21 21 17 24 14Z'/%3E%3Ccircle cx='24' cy='24' r='2.5'/%3E%3Cpath d='M0 0 4 4 0 8 -4 4Z'/%3E%3Cpath d='M48 0 52 4 48 8 44 4Z'/%3E%3Cpath d='M0 40 4 44 0 48 -4 44Z'/%3E%3Cpath d='M48 40 52 44 48 48 44 44Z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 48px 48px;
+    background-repeat: repeat;
   }
 }

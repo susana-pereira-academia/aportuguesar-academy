@@ -8,21 +8,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Paleta editorial creme+dourado. Cada plataforma pode personalizar via CSS vars.
-        cream: {
-          50: "var(--cream-50)",
-          100: "var(--cream-100)",
-          200: "var(--cream-200)",
+        // Paleta SP Academia. Valores em app/globals.css (:root).
+        noite: {
+          50: "var(--noite-50)",
+          100: "var(--noite-100)",
+          200: "var(--noite-200)",
+          300: "var(--noite-300)",
+          400: "var(--noite-400)",
+          500: "var(--noite-500)",
+          600: "var(--noite-600)", // Azul Real
+          700: "var(--noite-700)",
+          800: "var(--noite-800)", // Azul Noite
         },
-        gold: {
-          50: "var(--gold-50)",
-          100: "var(--gold-100)",
-          200: "var(--gold-200)",
-          300: "var(--gold-300)",
-          500: "var(--gold-500)",
-          600: "var(--gold-600)",
-          700: "var(--gold-700)",
-          800: "var(--gold-800)",
+        areia: {
+          50: "var(--areia-50)",
+          100: "var(--areia-100)",
+          200: "var(--areia-200)",
+          300: "var(--areia-300)",
+        },
+        dourado: {
+          200: "var(--dourado-200)",
+          400: "var(--dourado-400)",
+          500: "var(--dourado-500)",
+          700: "var(--dourado-700)",
         },
         ink: {
           DEFAULT: "var(--ink)",
@@ -36,12 +44,13 @@ const config: Config = {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       backgroundImage: {
-        "gold-foil":
-          "linear-gradient(135deg, var(--gold-600), var(--gold-500), var(--gold-700))",
-        "gold-gradient":
-          "linear-gradient(135deg, var(--gold-50), var(--gold-100))",
-        "gold-gradient-rich":
-          "linear-gradient(135deg, var(--gold-100), var(--gold-200))",
+        // Azul Noite → Azul Real. É este o gradiente dos botões principais.
+        "noite-foil":
+          "linear-gradient(135deg, var(--noite-800), var(--noite-600))",
+        "noite-gradient":
+          "linear-gradient(135deg, var(--noite-50), var(--noite-100))",
+        "noite-gradient-rich":
+          "linear-gradient(135deg, var(--noite-100), var(--noite-200))",
       },
     },
   },

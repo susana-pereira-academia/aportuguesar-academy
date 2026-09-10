@@ -18,6 +18,18 @@ create table if not exists public.estacoes (
 
 create index if not exists idx_estacoes_numero on public.estacoes(numero);
 
+create table if not exists public.seccoes (
+  id uuid primary key default gen_random_uuid(),
+  estacao_id uuid not null references public.estacoes(id) on delete cascade,
+  numero integer not null,
+  nome text not null,
+  descricao text,
+  publicada boolean not null default true,
+  criada_em timestamptz not null default now()
+);
+
+create index if not exists idx_seccoes_estacao on public.seccoes(estacao_id, numero);
+
 do $$ begin
   create type conteudo_tipo as enum ('video', 'material', 'checkbox');
 exception when duplicate_object then null; end $$;
@@ -25,6 +37,7 @@ exception when duplicate_object then null; end $$;
 create table if not exists public.conteudos (
   id uuid primary key default gen_random_uuid(),
   estacao_id uuid not null references public.estacoes(id) on delete cascade,
+  seccao_id uuid references public.seccoes(id) on delete set null,
   numero integer not null,
   titulo text not null,
   descricao text,
@@ -35,6 +48,7 @@ create table if not exists public.conteudos (
 );
 
 create index if not exists idx_conteudos_estacao on public.conteudos(estacao_id, numero);
+create index if not exists idx_conteudos_seccao on public.conteudos(seccao_id);
 
 create table if not exists public.progresso (
   aluna_id uuid not null references auth.users(id) on delete cascade,
@@ -64,6 +78,7 @@ create index if not exists idx_encontros_data on public.encontros(data_inicio de
 -- ─────────────── ROW-LEVEL SECURITY ───────────────
 
 alter table public.estacoes enable row level security;
+alter table public.seccoes enable row level security;
 alter table public.conteudos enable row level security;
 alter table public.progresso enable row level security;
 alter table public.encontros enable row level security;
@@ -71,6 +86,11 @@ alter table public.encontros enable row level security;
 drop policy if exists "Alunas autenticadas leem estações" on public.estacoes;
 create policy "Alunas autenticadas leem estações"
   on public.estacoes for select
+  using (auth.role() = 'authenticated' and publicada = true);
+
+drop policy if exists "Alunas autenticadas leem secções" on public.seccoes;
+create policy "Alunas autenticadas leem secções"
+  on public.seccoes for select
   using (auth.role() = 'authenticated' and publicada = true);
 
 drop policy if exists "Alunas autenticadas leem conteúdos" on public.conteudos;

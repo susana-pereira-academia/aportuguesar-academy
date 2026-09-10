@@ -19,7 +19,7 @@ export default async function AdminAgendaPage() {
         <div className="max-w-4xl mx-auto px-6 py-12">
           <Link
             href="/admin"
-            className="inline-flex items-center gap-2 text-sm text-gold-700 hover:text-gold-600 mb-8 transition-colors group"
+            className="inline-flex items-center gap-2 text-sm text-noite-700 hover:text-noite-600 mb-8 transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
             Voltar ao painel
@@ -27,12 +27,12 @@ export default async function AdminAgendaPage() {
 
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 gold-divider" />
-              <p className="text-[10px] tracking-[0.3em] uppercase text-gold-600">
+              <div className="w-8 dourado-divider" />
+              <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600">
                 Gerir agenda
               </p>
             </div>
-            <h1 className="font-serif italic text-4xl sm:text-5xl gold-text-rich mb-3">
+            <h1 className="font-serif italic text-4xl sm:text-5xl noite-text-rich mb-3">
               Os teus encontros
             </h1>
             <p className="text-sm text-ink-soft">

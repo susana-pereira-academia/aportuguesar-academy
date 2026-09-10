@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer
       className="border-t py-8 mt-16"
-      style={{ borderColor: "rgba(237, 217, 150, 0.4)" }}
+      style={{ borderColor: "rgba(200, 209, 236, 0.6)" }}
     >
       <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink-faint">
         <p>
@@ -13,7 +13,7 @@ export function Footer() {
             href="https://claude.com/claude-code"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gold-700 hover:text-gold-600"
+            className="text-noite-700 hover:text-noite-600"
           >
             Claude Code
           </a>{" "}

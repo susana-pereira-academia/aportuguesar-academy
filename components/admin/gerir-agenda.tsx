@@ -28,7 +28,7 @@ export function GerirAgenda({ encontros }: Props) {
       ) : (
         <button
           onClick={() => setNovoAberto(true)}
-          className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl border-2 border-dashed border-gold-300 text-gold-700 hover:bg-gold-50 hover:border-gold-400 transition-all text-sm tracking-[0.1em] uppercase font-medium"
+          className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl border-2 border-dashed border-noite-300 text-noite-700 hover:bg-noite-50 hover:border-noite-400 transition-all text-sm tracking-[0.1em] uppercase font-medium"
         >
           <Plus className="w-4 h-4" />
           Novo encontro
@@ -43,18 +43,18 @@ export function GerirAgenda({ encontros }: Props) {
         encontros.map((e) => (
           <div
             key={e.id}
-            className="rounded-2xl bg-cream-50 gold-border gold-shadow overflow-hidden"
+            className="rounded-2xl bg-areia-50 noite-border noite-shadow overflow-hidden"
           >
             <div className="flex items-start gap-4 px-5 py-4">
-              <div className="w-11 h-11 rounded-full bg-gold-gradient flex items-center justify-center shrink-0">
+              <div className="w-11 h-11 rounded-full bg-noite-gradient flex items-center justify-center shrink-0">
                 {e.vimeo_id ? (
-                  <Video className="w-4 h-4 text-gold-700" />
+                  <Video className="w-4 h-4 text-noite-700" />
                 ) : (
-                  <Calendar className="w-4 h-4 text-gold-700" />
+                  <Calendar className="w-4 h-4 text-noite-700" />
                 )}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-serif italic text-lg gold-text-rich">{e.titulo}</p>
+                <p className="font-serif italic text-lg noite-text-rich">{e.titulo}</p>
                 <p className="text-xs text-ink-faint mt-1">
                   {formatarDataHora(e.data_inicio)} · {e.duracao_min} min · {e.plataforma}
                 </p>
@@ -66,7 +66,7 @@ export function GerirAgenda({ encontros }: Props) {
                 onClick={() =>
                   setEditando(editando === e.id ? null : e.id)
                 }
-                className="p-2 rounded-md text-gold-700 hover:bg-gold-50"
+                className="p-2 rounded-md text-noite-700 hover:bg-noite-50"
                 title="Editar"
               >
                 <Pencil className="w-4 h-4" />
@@ -85,7 +85,7 @@ export function GerirAgenda({ encontros }: Props) {
             </div>
 
             {editando === e.id && (
-              <div className="border-t border-gold-200/50 px-5 py-4 bg-white/40">
+              <div className="border-t border-noite-200/50 px-5 py-4 bg-white/40">
                 <FormEncontro
                   inicial={e}
                   onOk={() => {
@@ -180,8 +180,8 @@ function FormEncontro({
   }
 
   return (
-    <form onSubmit={submeter} className="rounded-xl bg-cream-50 gold-border p-4 space-y-3">
-      <p className="text-[10px] tracking-[0.3em] uppercase text-gold-600 mb-1">
+    <form onSubmit={submeter} className="rounded-xl bg-areia-50 noite-border p-4 space-y-3">
+      <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-1">
         {inicial ? "Editar encontro" : "Novo encontro"}
       </p>
 
@@ -190,7 +190,7 @@ function FormEncontro({
         placeholder="Título do encontro"
         value={titulo}
         onChange={(e) => setTitulo(e.target.value)}
-        className="w-full rounded-lg border border-gold-200 bg-white px-3 py-2 text-sm font-serif italic focus:outline-none focus:border-gold-400"
+        className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm font-serif italic focus:outline-none focus:border-noite-400"
       />
 
       <textarea
@@ -198,12 +198,12 @@ function FormEncontro({
         value={descricao ?? ""}
         onChange={(e) => setDescricao(e.target.value)}
         rows={2}
-        className="w-full rounded-lg border border-gold-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-gold-400"
+        className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
       />
 
       <div className="grid gap-3 sm:grid-cols-3">
         <div>
-          <label className="text-[10px] tracking-[0.2em] uppercase text-gold-600 mb-1 block">
+          <label className="text-[10px] tracking-[0.2em] uppercase text-noite-600 mb-1 block">
             Data e hora
           </label>
           <input
@@ -211,11 +211,11 @@ function FormEncontro({
             type="datetime-local"
             value={dataInicio}
             onChange={(e) => setDataInicio(e.target.value)}
-            className="w-full rounded-lg border border-gold-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-gold-400"
+            className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
           />
         </div>
         <div>
-          <label className="text-[10px] tracking-[0.2em] uppercase text-gold-600 mb-1 block">
+          <label className="text-[10px] tracking-[0.2em] uppercase text-noite-600 mb-1 block">
             Duração (min)
           </label>
           <input
@@ -225,11 +225,11 @@ function FormEncontro({
             step={5}
             value={duracao}
             onChange={(e) => setDuracao(Number(e.target.value))}
-            className="w-full rounded-lg border border-gold-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-gold-400"
+            className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
           />
         </div>
         <div>
-          <label className="text-[10px] tracking-[0.2em] uppercase text-gold-600 mb-1 block">
+          <label className="text-[10px] tracking-[0.2em] uppercase text-noite-600 mb-1 block">
             Plataforma
           </label>
           <input
@@ -237,7 +237,7 @@ function FormEncontro({
             value={plataforma}
             onChange={(e) => setPlataforma(e.target.value)}
             placeholder="Zoom"
-            className="w-full rounded-lg border border-gold-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-gold-400"
+            className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
           />
         </div>
       </div>
@@ -246,18 +246,18 @@ function FormEncontro({
         placeholder="Link para entrar (Zoom, Meet, morada...)"
         value={link ?? ""}
         onChange={(e) => setLink(e.target.value)}
-        className="w-full rounded-lg border border-gold-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-gold-400"
+        className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
       />
 
       <div>
-        <label className="text-[10px] tracking-[0.2em] uppercase text-gold-600 mb-1 block">
+        <label className="text-[10px] tracking-[0.2em] uppercase text-noite-600 mb-1 block">
           Gravação (Vimeo ID ou URL) — opcional, aparece em Gravações
         </label>
         <input
           placeholder="Ex: 76979871"
           value={vimeoId ?? ""}
           onChange={(e) => setVimeoId(e.target.value)}
-          className="w-full rounded-lg border border-gold-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-gold-400"
+          className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
         />
       </div>
 
@@ -268,7 +268,7 @@ function FormEncontro({
           type="submit"
           disabled={pendente}
           className={cn(
-            "px-4 py-2 rounded-md bg-gold-foil text-white text-xs tracking-[0.1em] uppercase font-medium hover:opacity-90 disabled:opacity-50",
+            "px-4 py-2 rounded-md bg-noite-foil text-white text-xs tracking-[0.1em] uppercase font-medium hover:opacity-90 disabled:opacity-50",
           )}
         >
           {pendente ? "A guardar…" : "Guardar"}
@@ -276,7 +276,7 @@ function FormEncontro({
         <button
           type="button"
           onClick={onCancel}
-          className="px-4 py-2 rounded-md text-xs tracking-[0.1em] uppercase text-ink-soft hover:bg-cream-100"
+          className="px-4 py-2 rounded-md text-xs tracking-[0.1em] uppercase text-ink-soft hover:bg-areia-100"
         >
           Cancelar
         </button>

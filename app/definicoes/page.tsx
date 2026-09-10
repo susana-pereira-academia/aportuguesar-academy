@@ -16,13 +16,13 @@ export default async function DefinicoesPage() {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-3 mb-3">
-              <div className="w-8 gold-divider" />
-              <p className="text-[10px] tracking-[0.3em] uppercase text-gold-600">
+              <div className="w-8 dourado-divider" />
+              <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600">
                 Definições
               </p>
-              <div className="w-8 gold-divider" />
+              <div className="w-8 dourado-divider" />
             </div>
-            <h1 className="font-serif italic text-3xl gold-text-rich mb-2">
+            <h1 className="font-serif italic text-3xl noite-text-rich mb-2">
               Alterar password
             </h1>
             <p className="text-sm text-ink-soft">

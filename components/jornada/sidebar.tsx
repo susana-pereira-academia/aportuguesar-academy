@@ -5,7 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Check, Play, FileText, CheckCircle2, Calendar, Video } from "lucide-react";
 import { cn } from "@/lib/utils";
-import type { EstacaoComConteudos } from "@/lib/data/jornada";
+import { VOC } from "@/lib/vocabulario";
+import type { EstacaoComConteudos, Conteudo } from "@/lib/data/jornada";
 
 interface Props {
   estacoes: EstacaoComConteudos[];
@@ -42,29 +43,29 @@ export function Sidebar({ estacoes, idsFeitos, progressoTotal }: Props) {
       : 0;
 
   return (
-    <aside className="w-full lg:w-80 shrink-0 border-r border-gold-200/50 bg-cream-100/60 min-h-screen">
+    <aside className="w-full lg:w-80 shrink-0 border-r border-noite-200/50 bg-areia-100/60 min-h-screen">
       {/* Progresso total */}
-      <div className="px-6 py-6 border-b border-gold-200/40">
-        <p className="text-[10px] tracking-[0.3em] uppercase text-gold-600 mb-2">
+      <div className="px-6 py-6 border-b border-noite-200/40">
+        <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-2">
           O teu progresso
         </p>
         <div className="flex items-baseline justify-between mb-2">
-          <p className="font-serif italic text-2xl gold-text-rich">
+          <p className="font-serif italic text-2xl noite-text-rich">
             {progressoTotal.feitos}
             <span className="text-ink-faint">/{progressoTotal.total}</span>
           </p>
           <span className="text-xs text-ink-soft">{pct}%</span>
         </div>
-        <div className="h-1.5 rounded-full bg-gold-100 overflow-hidden">
+        <div className="h-1.5 rounded-full bg-noite-100 overflow-hidden">
           <div
-            className="h-full bg-gold-foil transition-all"
+            className="h-full bg-noite-foil transition-all"
             style={{ width: `${pct}%` }}
           />
         </div>
       </div>
 
       {/* Atalhos: Agenda + Gravações */}
-      <nav className="py-2 border-b border-gold-200/30">
+      <nav className="py-2 border-b border-noite-200/30">
         <AtalhoLink
           href="/jornada/agenda"
           icone={Calendar}
@@ -88,12 +89,12 @@ export function Sidebar({ estacoes, idsFeitos, progressoTotal }: Props) {
           ).length;
 
           return (
-            <div key={estacao.id} className="border-b border-gold-200/30 last:border-0">
+            <div key={estacao.id} className="border-b border-noite-200/30 last:border-0">
               <button
                 onClick={() => toggle(estacao.slug)}
-                className="w-full flex items-center gap-3 px-6 py-4 text-left hover:bg-cream-50 transition-colors"
+                className="w-full flex items-center gap-3 px-6 py-4 text-left hover:bg-areia-50 transition-colors"
               >
-                <span className="text-[10px] font-serif italic text-gold-600 shrink-0 w-6">
+                <span className="text-[10px] font-serif italic text-noite-600 shrink-0 w-6">
                   {String(estacao.numero).padStart(2, "0")}
                 </span>
                 <span className="flex-1 text-sm font-medium text-ink">
@@ -104,59 +105,126 @@ export function Sidebar({ estacoes, idsFeitos, progressoTotal }: Props) {
                 </span>
                 <ChevronDown
                   className={cn(
-                    "w-4 h-4 text-gold-600 transition-transform shrink-0",
+                    "w-4 h-4 text-noite-600 transition-transform shrink-0",
                     aberta && "rotate-180",
                   )}
                 />
               </button>
 
               {aberta && (
-                <ul className="pb-3">
+                <div className="pb-3">
                   {estacao.conteudos.length === 0 ? (
-                    <li className="px-6 py-2 text-xs text-ink-faint">
-                      Sem aulas.
-                    </li>
+                    <p className="px-6 py-2 text-xs text-ink-faint">
+                      Sem {VOC.conteudo.pMin}.
+                    </p>
                   ) : (
-                    estacao.conteudos.map((c) => {
-                      const href = `/jornada/${estacao.slug}/${c.numero}`;
-                      const ativa = pathname === href;
-                      const feito = feitosSet.has(c.id);
-                      const Icone =
-                        c.tipo === "video"
-                          ? Play
-                          : c.tipo === "material"
-                          ? FileText
-                          : CheckCircle2;
-                      return (
-                        <li key={c.id}>
-                          <Link
-                            href={href}
-                            className={cn(
-                              "flex items-center gap-3 pl-14 pr-6 py-2 text-sm transition-colors",
-                              ativa
-                                ? "bg-gold-100/60 text-gold-800 font-medium border-l-2 border-gold-500"
-                                : "text-ink-soft hover:bg-cream-50 hover:text-ink border-l-2 border-transparent",
-                              feito && !ativa && "text-ink-faint",
-                            )}
-                          >
-                            {feito ? (
-                              <Check className="w-3.5 h-3.5 text-success shrink-0" />
+                    <>
+                      {/* aulas que não estão dentro de nenhuma secção */}
+                      {estacao.soltas.length > 0 && (
+                        <ul>
+                          {estacao.soltas.map((c) => (
+                            <LinhaAula
+                              key={c.id}
+                              conteudo={c}
+                              slugEstacao={estacao.slug}
+                              pathname={pathname}
+                              feito={feitosSet.has(c.id)}
+                            />
+                          ))}
+                        </ul>
+                      )}
+
+                      {/* secções, cada uma com as suas aulas */}
+                      {estacao.seccoes.map((seccao) => {
+                        const feitosNaSeccao = seccao.conteudos.filter((c) =>
+                          feitosSet.has(c.id),
+                        ).length;
+                        return (
+                          <div key={seccao.id} className="mt-1">
+                            <div className="flex items-center gap-2 pl-10 pr-6 py-2">
+                              <span className="text-[9px] tracking-[0.25em] uppercase text-noite-600 flex-1 truncate">
+                                {seccao.nome}
+                              </span>
+                              <span className="text-[10px] text-ink-faint shrink-0">
+                                {feitosNaSeccao}/{seccao.conteudos.length}
+                              </span>
+                            </div>
+                            {seccao.conteudos.length === 0 ? (
+                              <p className="pl-14 pr-6 py-1.5 text-xs text-ink-faint">
+                                Sem {VOC.conteudo.pMin}.
+                              </p>
                             ) : (
-                              <Icone className="w-3.5 h-3.5 text-gold-500 shrink-0" />
+                              <ul>
+                                {seccao.conteudos.map((c) => (
+                                  <LinhaAula
+                                    key={c.id}
+                                    conteudo={c}
+                                    slugEstacao={estacao.slug}
+                                    pathname={pathname}
+                                    feito={feitosSet.has(c.id)}
+                                    recuada
+                                  />
+                                ))}
+                              </ul>
                             )}
-                            <span className="flex-1 truncate">{c.titulo}</span>
-                          </Link>
-                        </li>
-                      );
-                    })
+                          </div>
+                        );
+                      })}
+                    </>
                   )}
-                </ul>
+                </div>
               )}
             </div>
           );
         })}
       </nav>
     </aside>
+  );
+}
+
+function LinhaAula({
+  conteudo,
+  slugEstacao,
+  pathname,
+  feito,
+  recuada = false,
+}: {
+  conteudo: Conteudo;
+  slugEstacao: string;
+  pathname: string;
+  feito: boolean;
+  recuada?: boolean;
+}) {
+  const href = `/jornada/${slugEstacao}/${conteudo.numero}`;
+  const ativa = pathname === href;
+  const Icone =
+    conteudo.tipo === "video"
+      ? Play
+      : conteudo.tipo === "material"
+      ? FileText
+      : CheckCircle2;
+
+  return (
+    <li>
+      <Link
+        href={href}
+        className={cn(
+          "flex items-center gap-3 pr-6 py-2 text-sm transition-colors",
+          recuada ? "pl-16" : "pl-14",
+          ativa
+            ? "bg-noite-100/60 text-noite-800 font-medium border-l-2 border-noite-500"
+            : "text-ink-soft hover:bg-areia-50 hover:text-ink border-l-2 border-transparent",
+          feito && !ativa && "text-ink-faint",
+        )}
+      >
+        {feito ? (
+          <Check className="w-3.5 h-3.5 text-success shrink-0" />
+        ) : (
+          <Icone className="w-3.5 h-3.5 text-noite-500 shrink-0" />
+        )}
+        <span className="flex-1 truncate">{conteudo.titulo}</span>
+      </Link>
+    </li>
   );
 }
 
@@ -177,11 +245,11 @@ function AtalhoLink({
       className={cn(
         "flex items-center gap-3 px-6 py-3 text-sm transition-colors border-l-2",
         ativo
-          ? "bg-gold-100/60 text-gold-800 font-medium border-gold-500"
-          : "text-ink-soft hover:bg-cream-50 hover:text-ink border-transparent",
+          ? "bg-noite-100/60 text-noite-800 font-medium border-noite-500"
+          : "text-ink-soft hover:bg-areia-50 hover:text-ink border-transparent",
       )}
     >
-      <Icone className="w-4 h-4 text-gold-500 shrink-0" />
+      <Icone className="w-4 h-4 text-noite-500 shrink-0" />
       <span className="flex-1">{nome}</span>
     </Link>
   );
