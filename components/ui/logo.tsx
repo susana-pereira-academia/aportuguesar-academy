@@ -43,7 +43,7 @@ export function Logo({ className, href = "/", variante = "compacta" }: LogoProps
           className="w-[38px] h-auto max-w-none"
         />
       </span>
-      <span className="font-serif text-xl font-semibold tracking-wide text-noite-800 group-hover:text-noite-600 transition-colors">
+      <span className="font-serif text-2xl font-semibold tracking-wide text-noite-800 group-hover:text-noite-600 transition-colors">
         {PLATAFORMA.nome}
       </span>
     </Link>

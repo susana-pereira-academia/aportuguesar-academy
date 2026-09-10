@@ -29,7 +29,7 @@ export default async function AdminConteudosPage() {
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 dourado-divider" />
-              <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600">
+              <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700">
                 Gerir conteúdos
               </p>
             </div>

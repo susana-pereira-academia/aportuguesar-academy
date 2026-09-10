@@ -11,7 +11,7 @@ export function Card({ children, className, variant = "default" }: CardProps) {
     <div
       className={cn(
         "rounded-2xl bg-white p-6",
-        variant === "rich" ? "noite-border-rich noite-shadow-lg" : "noite-border noite-shadow",
+        variant === "rich" ? "marca-border-rich marca-shadow-lg" : "marca-border marca-shadow",
         className,
       )}
     >
@@ -22,7 +22,7 @@ export function Card({ children, className, variant = "default" }: CardProps) {
 
 export function CardTitle({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <h3 className={cn("font-serif italic text-2xl mb-2 noite-text-rich", className)}>
+    <h3 className={cn("font-serif italic text-[1.75rem] font-medium mb-2 noite-text-rich", className)}>
       {children}
     </h3>
   );
@@ -30,7 +30,7 @@ export function CardTitle({ children, className }: { children: React.ReactNode; 
 
 export function CardEyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-2">
+    <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-2">
       {children}
     </p>
   );

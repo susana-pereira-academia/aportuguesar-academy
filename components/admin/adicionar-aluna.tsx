@@ -39,9 +39,9 @@ export function AdicionarAluna() {
   }
 
   return (
-    <div className="rounded-2xl bg-areia-50 noite-border noite-shadow p-6 mb-10">
+    <div className="rounded-2xl bg-areia-50 marca-border marca-shadow p-6 mb-10">
       <div className="mb-4">
-        <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-2">
+        <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-2">
           Adicionar aluna
         </p>
         <p className="text-sm text-ink-soft">
@@ -56,14 +56,14 @@ export function AdicionarAluna() {
           placeholder="email da aluna"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="rounded-lg border border-noite-200 bg-white px-4 py-2 text-sm focus:outline-none focus:border-noite-400"
+          className="rounded-lg border border-areia-200 bg-white px-4 py-2 text-sm focus:outline-none focus:border-noite-400"
         />
         <input
           type="text"
           placeholder="nome (opcional)"
           value={nome}
           onChange={(e) => setNome(e.target.value)}
-          className="rounded-lg border border-noite-200 bg-white px-4 py-2 text-sm focus:outline-none focus:border-noite-400"
+          className="rounded-lg border border-areia-200 bg-white px-4 py-2 text-sm focus:outline-none focus:border-noite-400"
         />
         <Button type="submit" size="sm" disabled={estado.tipo === "loading"}>
           {estado.tipo === "loading" ? "A adicionar…" : "Adicionar"}

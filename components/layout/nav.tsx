@@ -20,8 +20,8 @@ export async function Nav({ autenticado = false }: NavProps) {
     <nav
       className="border-b backdrop-blur-sm"
       style={{
-        borderColor: "rgba(200, 209, 236, 0.6)",
-        backgroundColor: "rgba(253, 251, 248, 0.85)",
+        borderColor: "rgba(235, 220, 196, 0.9)",
+        backgroundColor: "rgba(253, 250, 244, 0.88)",
       }}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">

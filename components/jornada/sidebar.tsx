@@ -43,20 +43,20 @@ export function Sidebar({ estacoes, idsFeitos, progressoTotal }: Props) {
       : 0;
 
   return (
-    <aside className="w-full lg:w-80 shrink-0 border-r border-noite-200/50 bg-areia-100/60 min-h-screen">
+    <aside className="w-full lg:w-80 shrink-0 border-r border-areia-200 bg-areia-100 min-h-screen">
       {/* Progresso total */}
-      <div className="px-6 py-6 border-b border-noite-200/40">
-        <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-2">
+      <div className="px-6 py-6 border-b border-areia-200/40">
+        <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-2">
           O teu progresso
         </p>
         <div className="flex items-baseline justify-between mb-2">
-          <p className="font-serif italic text-2xl noite-text-rich">
+          <p className="font-serif italic text-[1.75rem] font-medium noite-text-rich">
             {progressoTotal.feitos}
             <span className="text-ink-faint">/{progressoTotal.total}</span>
           </p>
           <span className="text-xs text-ink-soft">{pct}%</span>
         </div>
-        <div className="h-1.5 rounded-full bg-noite-100 overflow-hidden">
+        <div className="h-1.5 rounded-full bg-areia-200 overflow-hidden">
           <div
             className="h-full bg-noite-foil transition-all"
             style={{ width: `${pct}%` }}
@@ -65,7 +65,7 @@ export function Sidebar({ estacoes, idsFeitos, progressoTotal }: Props) {
       </div>
 
       {/* Atalhos: Agenda + Gravações */}
-      <nav className="py-2 border-b border-noite-200/30">
+      <nav className="py-2 border-b border-areia-200/30">
         <AtalhoLink
           href="/jornada/agenda"
           icone={Calendar}
@@ -89,12 +89,12 @@ export function Sidebar({ estacoes, idsFeitos, progressoTotal }: Props) {
           ).length;
 
           return (
-            <div key={estacao.id} className="border-b border-noite-200/30 last:border-0">
+            <div key={estacao.id} className="border-b border-areia-200/30 last:border-0">
               <button
                 onClick={() => toggle(estacao.slug)}
                 className="w-full flex items-center gap-3 px-6 py-4 text-left hover:bg-areia-50 transition-colors"
               >
-                <span className="text-[10px] font-serif italic text-noite-600 shrink-0 w-6">
+                <span className="text-[10px] font-semibold text-dourado-700 shrink-0 w-6">
                   {String(estacao.numero).padStart(2, "0")}
                 </span>
                 <span className="flex-1 text-sm font-medium text-ink">
@@ -142,7 +142,7 @@ export function Sidebar({ estacoes, idsFeitos, progressoTotal }: Props) {
                         return (
                           <div key={seccao.id} className="mt-1">
                             <div className="flex items-center gap-2 pl-10 pr-6 py-2">
-                              <span className="text-[9px] tracking-[0.25em] uppercase text-noite-600 flex-1 truncate">
+                              <span className="text-[9px] tracking-[0.25em] uppercase text-dourado-700 flex-1 truncate">
                                 {seccao.nome}
                               </span>
                               <span className="text-[10px] text-ink-faint shrink-0">
@@ -212,7 +212,7 @@ function LinhaAula({
           "flex items-center gap-3 pr-6 py-2 text-sm transition-colors",
           recuada ? "pl-16" : "pl-14",
           ativa
-            ? "bg-noite-100/60 text-noite-800 font-medium border-l-2 border-noite-500"
+            ? "bg-areia-200/70 text-noite-800 font-medium border-l-2 border-dourado-500"
             : "text-ink-soft hover:bg-areia-50 hover:text-ink border-l-2 border-transparent",
           feito && !ativa && "text-ink-faint",
         )}
@@ -245,7 +245,7 @@ function AtalhoLink({
       className={cn(
         "flex items-center gap-3 px-6 py-3 text-sm transition-colors border-l-2",
         ativo
-          ? "bg-noite-100/60 text-noite-800 font-medium border-noite-500"
+          ? "bg-areia-200/70 text-noite-800 font-medium border-dourado-500"
           : "text-ink-soft hover:bg-areia-50 hover:text-ink border-transparent",
       )}
     >

@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer
       className="border-t py-8 mt-16"
-      style={{ borderColor: "rgba(200, 209, 236, 0.6)" }}
+      style={{ borderColor: "rgba(235, 220, 196, 0.9)" }}
     >
       <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink-faint">
         <p>

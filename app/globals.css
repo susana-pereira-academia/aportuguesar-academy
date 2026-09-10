@@ -23,9 +23,9 @@
     --noite-800: #020C50; /* Azul Noite */
 
     /* Areia — calor, fundos, elegância natural */
-    --areia-50: #FDFBF8;
-    --areia-100: #F6F0E7;
-    --areia-200: #EADFCC;
+    --areia-50: #FDFAF4;
+    --areia-100: #F7EFE2;
+    --areia-200: #EBDCC4;
     --areia-300: #D7BE9D; /* Areia */
 
     /* Dourado — acento de excelência, com parcimónia */
@@ -34,12 +34,13 @@
     --dourado-500: #C9A84C; /* Dourado */
     --dourado-700: #9C7F31;
 
-    /* Texto — neutros derivados do Azul Noite */
-    --ink: #1B2140;
-    --ink-soft: #4A5478;
-    --ink-faint: #8189A6;
+    /* Texto — neutros quentes. Os títulos é que são Azul Noite;
+       o corpo em cinzento-azulado deixava a plataforma fria. */
+    --ink: #2B2620;
+    --ink-soft: #5A5046;
+    --ink-faint: #8C8073;
 
-    --success: #2F6B4F;
+    --success: #4B7A50;
 
     --background: var(--areia-50);
     --foreground: var(--ink);
@@ -56,22 +57,28 @@
     font-family: var(--font-sans), system-ui, sans-serif;
   }
 
+  /* Cormorant Garamond tem altura-de-x baixa e traço fino: a 400 lê-se mal.
+     500 é o mínimo confortável; as classes font-semibold/bold sobrepõem-se. */
+  .font-serif {
+    font-weight: 500;
+  }
+
   ::selection {
-    background: var(--noite-100);
+    background: var(--areia-200);
     color: var(--noite-800);
   }
 }
 
 @layer components {
   /* --- Filetes e molduras ------------------------------------ */
-  .noite-border {
+  .marca-border {
     border-width: 1px;
-    border-color: rgba(200, 209, 236, 0.7); /* noite-200 */
+    border-color: rgba(235, 220, 196, 0.95); /* areia-200 */
   }
 
-  .noite-border-rich {
+  .marca-border-rich {
     border-width: 1px;
-    border-color: rgba(154, 168, 220, 0.6); /* noite-300 */
+    border-color: rgba(215, 190, 157, 0.7); /* areia-300 */
   }
 
   /* --- Títulos ------------------------------------------------ */
@@ -89,26 +96,26 @@
   }
 
   /* --- Sombras (tingidas de azul, não de dourado) ------------- */
-  .noite-shadow {
+  .marca-shadow {
     box-shadow:
-      0 1px 3px rgba(2, 12, 80, 0.06),
-      0 4px 12px rgba(2, 12, 80, 0.05);
+      0 1px 3px rgba(120, 92, 52, 0.07),
+      0 4px 12px rgba(120, 92, 52, 0.06);
   }
 
-  .noite-shadow-lg {
+  .marca-shadow-lg {
     box-shadow:
-      0 4px 12px rgba(2, 12, 80, 0.08),
-      0 12px 32px rgba(2, 12, 80, 0.06);
+      0 4px 12px rgba(120, 92, 52, 0.10),
+      0 12px 32px rgba(120, 92, 52, 0.08);
   }
 
-  .noite-glow-hover {
+  .marca-glow-hover {
     transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
 
-  .noite-glow-hover:hover {
+  .marca-glow-hover:hover {
     box-shadow:
-      0 8px 20px rgba(2, 12, 80, 0.12),
-      0 20px 40px rgba(2, 12, 80, 0.08);
+      0 8px 20px rgba(120, 92, 52, 0.14),
+      0 20px 40px rgba(120, 92, 52, 0.10);
     transform: translateY(-2px);
   }
 
@@ -116,7 +123,7 @@
      Elemento central e não removível da marca (Manual de Branding).
      Padrão ténue, para fundos amplos — nunca por baixo de texto denso. */
   .azulejo {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%23020C50' stroke-width='1.1' opacity='0.09'%3E%3Cpath d='M24 3C31 10 38 17 45 24 38 31 31 38 24 45 17 38 10 31 3 24 10 17 17 10 24 3Z'/%3E%3Cpath d='M24 14C27 17 31 21 34 24 31 27 27 31 24 34 21 31 17 27 14 24 17 21 21 17 24 14Z'/%3E%3Ccircle cx='24' cy='24' r='2.5'/%3E%3Cpath d='M0 0 4 4 0 8 -4 4Z'/%3E%3Cpath d='M48 0 52 4 48 8 44 4Z'/%3E%3Cpath d='M0 40 4 44 0 48 -4 44Z'/%3E%3Cpath d='M48 40 52 44 48 48 44 44Z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%23C09A6B' stroke-width='1.1' opacity='0.22'%3E%3Cpath d='M24 3C31 10 38 17 45 24 38 31 31 38 24 45 17 38 10 31 3 24 10 17 17 10 24 3Z'/%3E%3Cpath d='M24 14C27 17 31 21 34 24 31 27 27 31 24 34 21 31 17 27 14 24 17 21 21 17 24 14Z'/%3E%3Ccircle cx='24' cy='24' r='2.5'/%3E%3Cpath d='M0 0 4 4 0 8 -4 4Z'/%3E%3Cpath d='M48 0 52 4 48 8 44 4Z'/%3E%3Cpath d='M0 40 4 44 0 48 -4 44Z'/%3E%3Cpath d='M48 40 52 44 48 48 44 44Z'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 48px 48px;
     background-repeat: repeat;
   }

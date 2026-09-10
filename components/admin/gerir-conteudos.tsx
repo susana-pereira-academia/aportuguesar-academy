@@ -62,7 +62,7 @@ export function GerirConteudos({ estacoes }: Props) {
       ) : (
         <button
           onClick={() => setNovaEstacaoAberta(true)}
-          className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl border-2 border-dashed border-noite-300 text-noite-700 hover:bg-noite-50 hover:border-noite-400 transition-all text-sm tracking-[0.1em] uppercase font-medium"
+          className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl border-2 border-dashed border-areia-300 text-noite-700 hover:bg-areia-100 hover:border-noite-400 transition-all text-sm tracking-[0.1em] uppercase font-medium"
         >
           <Plus className="w-4 h-4" />
           {VOC.estacao.novo} {VOC.estacao.sMin}
@@ -77,7 +77,7 @@ export function GerirConteudos({ estacoes }: Props) {
         return (
           <div
             key={estacao.id}
-            className="rounded-2xl bg-areia-50 noite-border noite-shadow overflow-hidden"
+            className="rounded-2xl bg-areia-50 marca-border marca-shadow overflow-hidden"
           >
             {/* Cabeçalho da estação */}
             <div className="flex items-center gap-3 px-5 py-4">
@@ -91,10 +91,10 @@ export function GerirConteudos({ estacoes }: Props) {
                     aberta && "rotate-180",
                   )}
                 />
-                <span className="text-[11px] font-serif italic text-noite-600 w-8">
+                <span className="text-[11px] font-semibold text-dourado-700 w-8">
                   {String(estacao.numero).padStart(2, "0")}
                 </span>
-                <span className="font-serif italic text-lg noite-text-rich">
+                <span className="font-serif italic text-xl font-medium noite-text-rich">
                   {estacao.nome}
                 </span>
                 <span
@@ -118,7 +118,7 @@ export function GerirConteudos({ estacoes }: Props) {
                 onClick={() =>
                   setEstacaoEditada(emEdicao ? null : estacao.id)
                 }
-                className="p-2 rounded-md text-noite-700 hover:bg-noite-50"
+                className="p-2 rounded-md text-noite-700 hover:bg-areia-100"
                 title="Editar"
               >
                 <Pencil className="w-4 h-4" />
@@ -145,7 +145,7 @@ export function GerirConteudos({ estacoes }: Props) {
 
             {/* Formulário editar estação */}
             {emEdicao && (
-              <div className="border-t border-noite-200/50 px-5 py-4 bg-white/40">
+              <div className="border-t border-areia-200/50 px-5 py-4 bg-white/40">
                 <FormEstacao
                   inicial={estacao}
                   onOk={() => {
@@ -159,7 +159,7 @@ export function GerirConteudos({ estacoes }: Props) {
 
             {/* Secções e aulas */}
             {aberta && (
-              <div className="border-t border-noite-200/50 bg-white/30">
+              <div className="border-t border-areia-200/50 bg-white/30">
                 {/* aulas soltas, fora de qualquer secção */}
                 {estacao.soltas.map((c) => (
                   <LinhaAula
@@ -175,7 +175,7 @@ export function GerirConteudos({ estacoes }: Props) {
                 ))}
 
                 {novaAulaEstacao === estacao.id ? (
-                  <div className="border-t border-noite-200/50 px-5 py-4">
+                  <div className="border-t border-areia-200/50 px-5 py-4">
                     <FormAula
                       estacaoId={estacao.id}
                       seccoes={estacao.seccoes}
@@ -189,7 +189,7 @@ export function GerirConteudos({ estacoes }: Props) {
                 ) : (
                   <button
                     onClick={() => setNovaAulaEstacao(estacao.id)}
-                    className="w-full flex items-center justify-center gap-2 px-5 py-3 text-xs tracking-[0.15em] uppercase text-noite-700 hover:bg-noite-50 border-t border-noite-200/50 transition-colors"
+                    className="w-full flex items-center justify-center gap-2 px-5 py-3 text-xs tracking-[0.15em] uppercase text-dourado-700 hover:bg-areia-100 border-t border-areia-200/50 transition-colors"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     {VOC.conteudo.novo} {VOC.conteudo.sMin}{" "}
@@ -214,7 +214,7 @@ export function GerirConteudos({ estacoes }: Props) {
                 ))}
 
                 {novaSeccaoEstacao === estacao.id ? (
-                  <div className="border-t border-noite-200/50 px-5 py-4 bg-noite-50/40">
+                  <div className="border-t border-areia-200/50 px-5 py-4 bg-areia-100/70">
                     <FormSeccao
                       estacaoId={estacao.id}
                       onOk={() => {
@@ -227,7 +227,7 @@ export function GerirConteudos({ estacoes }: Props) {
                 ) : (
                   <button
                     onClick={() => setNovaSeccaoEstacao(estacao.id)}
-                    className="w-full flex items-center justify-center gap-2 px-5 py-3 text-xs tracking-[0.15em] uppercase text-noite-800 bg-noite-50/60 hover:bg-noite-100/60 border-t border-noite-200/50 transition-colors font-medium"
+                    className="w-full flex items-center justify-center gap-2 px-5 py-3 text-xs tracking-[0.15em] uppercase text-noite-800 bg-areia-100/70 hover:bg-areia-200/70 border-t border-areia-200/50 transition-colors font-medium"
                   >
                     <FolderPlus className="w-3.5 h-3.5" />
                     Nova secção
@@ -285,7 +285,7 @@ function BlocoSeccao({
   const emEdicao = seccaoEditada === seccao.id;
 
   return (
-    <div className="border-t border-noite-200/50 bg-noite-50/25">
+    <div className="border-t border-areia-200/50 bg-areia-100/50">
       <div className="flex items-center gap-3 px-5 py-3 pl-8">
         <Folder className="w-4 h-4 text-noite-600 shrink-0" />
         <span className="text-sm font-medium text-ink flex-1 truncate">
@@ -307,7 +307,7 @@ function BlocoSeccao({
         </span>
         <button
           onClick={() => setSeccaoEditada(emEdicao ? null : seccao.id)}
-          className="p-2 rounded-md text-noite-700 hover:bg-noite-100"
+          className="p-2 rounded-md text-noite-700 hover:bg-areia-200"
           title="Editar secção"
         >
           <Pencil className="w-3.5 h-3.5" />
@@ -357,7 +357,7 @@ function BlocoSeccao({
       ))}
 
       {novaAulaSeccao === seccao.id ? (
-        <div className="border-t border-noite-200/40 px-5 py-4 pl-10">
+        <div className="border-t border-areia-200/40 px-5 py-4 pl-10">
           <FormAula
             estacaoId={estacaoId}
             seccaoId={seccao.id}
@@ -372,7 +372,7 @@ function BlocoSeccao({
       ) : (
         <button
           onClick={() => setNovaAulaSeccao(seccao.id)}
-          className="w-full flex items-center justify-center gap-2 px-5 py-2.5 text-xs tracking-[0.15em] uppercase text-noite-700 hover:bg-noite-100/50 border-t border-noite-200/40 transition-colors"
+          className="w-full flex items-center justify-center gap-2 px-5 py-2.5 text-xs tracking-[0.15em] uppercase text-dourado-700 hover:bg-areia-200/60 border-t border-areia-200/40 transition-colors"
         >
           <Plus className="w-3.5 h-3.5" />
           {VOC.conteudo.novo} {VOC.conteudo.sMin} nesta secção
@@ -427,8 +427,8 @@ function FormSeccao({
   }
 
   return (
-    <form onSubmit={submeter} className="rounded-xl bg-areia-50 noite-border p-4 space-y-3">
-      <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-1">
+    <form onSubmit={submeter} className="rounded-xl bg-areia-50 marca-border p-4 space-y-3">
+      <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-1">
         {inicial ? "Editar secção" : "Nova secção"}
       </p>
       <input
@@ -436,14 +436,14 @@ function FormSeccao({
         placeholder="Nome da secção (ex: Módulo 1)"
         value={nome}
         onChange={(e) => setNome(e.target.value)}
-        className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm font-serif italic focus:outline-none focus:border-noite-400"
+        className="w-full rounded-lg border border-areia-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
       />
       <textarea
         placeholder="Descrição (opcional)"
         value={descricao ?? ""}
         onChange={(e) => setDescricao(e.target.value)}
         rows={2}
-        className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
+        className="w-full rounded-lg border border-areia-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
       />
       <label className="flex items-center gap-2 text-sm text-ink-soft">
         <input
@@ -519,8 +519,8 @@ function FormEstacao({
   }
 
   return (
-    <form onSubmit={submeter} className="rounded-2xl bg-areia-50 noite-border p-5 space-y-3">
-      <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-1">
+    <form onSubmit={submeter} className="rounded-2xl bg-areia-50 marca-border p-5 space-y-3">
+      <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-1">
         {inicial
           ? `Editar ${VOC.estacao.sMin}`
           : `${VOC.estacao.novo} ${VOC.estacao.sMin}`}
@@ -530,14 +530,14 @@ function FormEstacao({
         placeholder={`Nome ${VOC.estacao.do} ${VOC.estacao.sMin}`}
         value={nome}
         onChange={(e) => setNome(e.target.value)}
-        className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm font-serif italic focus:outline-none focus:border-noite-400"
+        className="w-full rounded-lg border border-areia-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
       />
       <textarea
         placeholder="Descrição (opcional)"
         value={descricao ?? ""}
         onChange={(e) => setDescricao(e.target.value)}
         rows={3}
-        className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
+        className="w-full rounded-lg border border-areia-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
       />
       <label className="flex items-center gap-2 text-sm text-ink-soft">
         <input
@@ -591,7 +591,7 @@ function LinhaAula({
     conteudo.tipo === "video" ? Video : conteudo.tipo === "material" ? FileText : CheckCircle2;
 
   return (
-    <div className={cn("border-t border-noite-200/50", recuada && "pl-5")}>
+    <div className={cn("border-t border-areia-200/50", recuada && "pl-5")}>
       <div className="flex items-center gap-3 px-5 py-3">
         <span className="text-[10px] text-ink-faint w-6">
           {conteudo.numero}.
@@ -603,7 +603,7 @@ function LinhaAula({
         </span>
         <button
           onClick={onEditar}
-          className="p-2 rounded-md text-noite-700 hover:bg-noite-50"
+          className="p-2 rounded-md text-noite-700 hover:bg-areia-100"
           title="Editar"
         >
           <Pencil className="w-3.5 h-3.5" />
@@ -724,8 +724,8 @@ function FormAula({
   }
 
   return (
-    <form onSubmit={submeter} className="rounded-xl bg-areia-50 noite-border p-4 space-y-3">
-      <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-1">
+    <form onSubmit={submeter} className="rounded-xl bg-areia-50 marca-border p-4 space-y-3">
+      <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-1">
         {inicial
           ? `Editar ${VOC.conteudo.sMin}`
           : `${VOC.conteudo.novo} ${VOC.conteudo.sMin}`}
@@ -741,7 +741,7 @@ function FormAula({
               "px-3 py-1.5 rounded-md text-xs tracking-[0.1em] uppercase transition-all",
               tipo === t
                 ? "bg-noite-foil text-white"
-                : "bg-white text-ink-soft border border-noite-200 hover:bg-noite-50",
+                : "bg-white text-ink-soft border border-areia-200 hover:bg-areia-100",
             )}
           >
             {t === "video" ? "Vídeo" : t === "material" ? "Material" : "Marco"}
@@ -754,18 +754,18 @@ function FormAula({
         placeholder={`Título ${VOC.conteudo.do} ${VOC.conteudo.sMin}`}
         value={titulo}
         onChange={(e) => setTitulo(e.target.value)}
-        className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm font-serif italic focus:outline-none focus:border-noite-400"
+        className="w-full rounded-lg border border-areia-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
       />
 
       {seccoes.length > 0 && (
         <label className="block">
-          <span className="text-[10px] tracking-[0.2em] uppercase text-noite-600">
+          <span className="text-[10px] tracking-[0.2em] uppercase text-dourado-700">
             Secção
           </span>
           <select
             value={seccao}
             onChange={(e) => setSeccao(e.target.value)}
-            className="mt-1 w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
+            className="mt-1 w-full rounded-lg border border-areia-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
           >
             <option value="">
               Sem secção — {VOC.conteudo.g("solto", "solta")} {VOC.estacao.no}{" "}
@@ -785,7 +785,7 @@ function FormAula({
         value={descricao ?? ""}
         onChange={(e) => setDescricao(e.target.value)}
         rows={2}
-        className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
+        className="w-full rounded-lg border border-areia-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
       />
 
       {tipo === "video" && (
@@ -793,7 +793,7 @@ function FormAula({
           placeholder="ID do Vimeo ou link (ex: 76979871 ou vimeo.com/76979871)"
           value={vimeoId ?? ""}
           onChange={(e) => setVimeoId(e.target.value)}
-          className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
+          className="w-full rounded-lg border border-areia-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
         />
       )}
 
@@ -803,15 +803,15 @@ function FormAula({
             placeholder="URL do material (Drive, Notion, etc)"
             value={materialUrl ?? ""}
             onChange={(e) => setMaterialUrl(e.target.value)}
-            className="w-full rounded-lg border border-noite-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
+            className="w-full rounded-lg border border-areia-200 bg-white px-3 py-2 text-sm focus:outline-none focus:border-noite-400"
           />
           <div className="flex items-center gap-2 text-xs text-ink-faint">
             <span>ou</span>
-            <div className="flex-1 h-px bg-noite-200/60" />
+            <div className="flex-1 h-px bg-areia-200" />
           </div>
           <label
             className={cn(
-              "flex items-center justify-center gap-2 py-3 rounded-lg border-2 border-dashed border-noite-300 text-noite-700 hover:bg-noite-50 cursor-pointer text-xs tracking-[0.1em] uppercase transition-all",
+              "flex items-center justify-center gap-2 py-3 rounded-lg border-2 border-dashed border-areia-300 text-noite-700 hover:bg-areia-100 cursor-pointer text-xs tracking-[0.1em] uppercase transition-all",
               uploadPendente && "opacity-50 pointer-events-none",
             )}
           >

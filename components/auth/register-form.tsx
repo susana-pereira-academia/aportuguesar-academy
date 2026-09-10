@@ -53,7 +53,7 @@ export function RegisterForm() {
   if (sucesso) {
     return (
       <div className="text-center space-y-4">
-        <p className="font-serif italic text-2xl noite-text-rich">Conta criada.</p>
+        <p className="font-serif italic text-[1.75rem] font-medium noite-text-rich">Conta criada.</p>
         <p className="text-ink-soft">
           Confirma o teu email — enviámos-te um link para ativares a conta.
         </p>

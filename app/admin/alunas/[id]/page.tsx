@@ -43,7 +43,7 @@ export default async function AlunaDetalhePage({ params }: Props) {
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 dourado-divider" />
-              <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600">
+              <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700">
                 Detalhe da aluna
               </p>
             </div>
@@ -54,17 +54,17 @@ export default async function AlunaDetalhePage({ params }: Props) {
           </div>
 
           {/* Progresso resumo */}
-          <div className="rounded-2xl bg-areia-50 noite-border noite-shadow p-6 mb-8">
+          <div className="rounded-2xl bg-areia-50 marca-border marca-shadow p-6 mb-8">
             <div className="grid gap-6 sm:grid-cols-3">
               <div>
-                <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-2">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-2">
                   Progresso
                 </p>
                 <p className="font-serif italic text-3xl noite-text-rich">
                   {aluna.conteudos_feitos}
                   <span className="text-ink-faint">/{aluna.conteudos_totais}</span>
                 </p>
-                <div className="h-1.5 rounded-full bg-noite-100 mt-3 overflow-hidden">
+                <div className="h-1.5 rounded-full bg-areia-200 mt-3 overflow-hidden">
                   <div
                     className="h-full bg-noite-foil transition-all"
                     style={{ width: `${pct}%` }}
@@ -73,18 +73,18 @@ export default async function AlunaDetalhePage({ params }: Props) {
                 <p className="text-xs text-ink-soft mt-1">{pct}%</p>
               </div>
               <div>
-                <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-2">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-2">
                   Registada em
                 </p>
-                <p className="font-serif italic text-xl text-ink">
+                <p className="font-serif italic text-2xl font-medium text-ink">
                   {formatarData(aluna.criada_em)}
                 </p>
               </div>
               <div>
-                <p className="text-[10px] tracking-[0.3em] uppercase text-noite-600 mb-2">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-2">
                   Última atividade
                 </p>
-                <p className="font-serif italic text-xl text-ink">
+                <p className="font-serif italic text-2xl font-medium text-ink">
                   {aluna.ultima_atividade
                     ? formatarData(aluna.ultima_atividade)
                     : "—"}
@@ -104,13 +104,13 @@ export default async function AlunaDetalhePage({ params }: Props) {
               return (
                 <div
                   key={estacao.id}
-                  className="rounded-2xl bg-areia-50 noite-border overflow-hidden"
+                  className="rounded-2xl bg-areia-50 marca-border overflow-hidden"
                 >
-                  <div className="flex items-center gap-3 px-5 py-4 border-b border-noite-200/40">
-                    <span className="text-[11px] font-serif italic text-noite-600 w-8">
+                  <div className="flex items-center gap-3 px-5 py-4 border-b border-areia-200/40">
+                    <span className="text-[11px] font-semibold text-dourado-700 w-8">
                       {String(estacao.numero).padStart(2, "0")}
                     </span>
-                    <span className="font-serif italic text-lg noite-text-rich flex-1">
+                    <span className="font-serif italic text-xl font-medium noite-text-rich flex-1">
                       {estacao.nome}
                     </span>
                     {!estacao.publicada && (
@@ -141,7 +141,7 @@ export default async function AlunaDetalhePage({ params }: Props) {
                           <li
                             key={c.id}
                             className={cn(
-                              "flex items-center gap-3 px-5 py-3 border-t border-noite-200/30 first:border-0",
+                              "flex items-center gap-3 px-5 py-3 border-t border-areia-200/30 first:border-0",
                               feito ? "bg-success/5" : "",
                             )}
                           >

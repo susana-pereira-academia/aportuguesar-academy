@@ -27,11 +27,11 @@ type Props = ButtonProps | LinkProps;
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-noite-foil text-white noite-shadow hover:opacity-90",
+    "bg-noite-foil text-white marca-shadow hover:opacity-90",
   ghost:
-    "text-noite-700 hover:bg-noite-50",
+    "text-noite-700 hover:bg-areia-100",
   outline:
-    "noite-border-rich text-noite-700 hover:bg-noite-50",
+    "marca-border-rich text-noite-700 hover:bg-areia-100",
 };
 
 const sizes: Record<Size, string> = {
