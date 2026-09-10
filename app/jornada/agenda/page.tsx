@@ -39,7 +39,7 @@ export default async function AgendaPage() {
       )}
 
       {proximos.length === 0 && (
-        <div className="rounded-2xl bg-areia-50 marca-border p-10 text-center">
+        <div className="rounded-2xl bg-white marca-border p-10 text-center">
           <Calendar className="w-8 h-8 text-noite-500 mx-auto mb-3" />
           <p className="font-serif italic text-2xl font-medium noite-text-rich mb-2">
             Ainda sem encontros marcados
@@ -138,7 +138,7 @@ function CardProximo({ encontro }: { encontro: Encontro }) {
 
 function LinhaEncontro({ encontro }: { encontro: Encontro }) {
   return (
-    <div className="flex items-start gap-4 rounded-xl bg-areia-50 marca-border p-4">
+    <div className="flex items-start gap-4 rounded-xl bg-white marca-border p-4">
       <div className="text-center shrink-0 w-14">
         <p className="text-[9px] tracking-[0.2em] uppercase text-dourado-700">
           {new Date(encontro.data_inicio).toLocaleDateString("pt-PT", {

@@ -42,7 +42,7 @@
 
     --success: #4B7A50;
 
-    --background: var(--areia-50);
+    --background: #FFFFFF;
     --foreground: var(--ink);
   }
 
@@ -73,12 +73,12 @@
   /* --- Filetes e molduras ------------------------------------ */
   .marca-border {
     border-width: 1px;
-    border-color: rgba(235, 220, 196, 0.95); /* areia-200 */
+    border-color: rgba(235, 220, 196, 0.55); /* areia-200, esbatido */
   }
 
   .marca-border-rich {
     border-width: 1px;
-    border-color: rgba(215, 190, 157, 0.7); /* areia-300 */
+    border-color: rgba(215, 190, 157, 0.45); /* areia-300, esbatido */
   }
 
   /* --- Títulos ------------------------------------------------ */

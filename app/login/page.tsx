@@ -6,7 +6,7 @@ export const metadata = { title: "Entrar" };
 
 export default function LoginPage() {
   return (
-    <div className="relative min-h-screen flex flex-col bg-areia-50">
+    <div className="relative min-h-screen flex flex-col bg-white">
       {/* Azulejo — elemento de identidade da marca. Fica só nas margens: a máscara
           abre o centro, para o conteúdo respirar como o Manual pede. */}
       <div

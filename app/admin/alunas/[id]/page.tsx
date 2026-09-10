@@ -54,7 +54,7 @@ export default async function AlunaDetalhePage({ params }: Props) {
           </div>
 
           {/* Progresso resumo */}
-          <div className="rounded-2xl bg-areia-50 marca-border marca-shadow p-6 mb-8">
+          <div className="rounded-2xl bg-white marca-border marca-shadow p-6 mb-8">
             <div className="grid gap-6 sm:grid-cols-3">
               <div>
                 <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-2">
@@ -104,7 +104,7 @@ export default async function AlunaDetalhePage({ params }: Props) {
               return (
                 <div
                   key={estacao.id}
-                  className="rounded-2xl bg-areia-50 marca-border overflow-hidden"
+                  className="rounded-2xl bg-white marca-border overflow-hidden"
                 >
                   <div className="flex items-center gap-3 px-5 py-4 border-b border-areia-200/40">
                     <span className="text-[11px] font-semibold text-dourado-700 w-8">

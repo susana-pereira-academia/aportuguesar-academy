@@ -43,7 +43,7 @@ export default async function AdminPage() {
           <div className="flex flex-wrap gap-3 mb-8">
             <Link
               href="/admin/conteudos"
-              className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-areia-50 marca-border marca-shadow hover:bg-areia-100 transition-all group"
+              className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-white marca-border marca-shadow hover:bg-areia-100 transition-all group"
             >
               <Layers className="w-4 h-4 text-noite-600" />
               <span className="text-sm font-medium text-ink">
@@ -55,7 +55,7 @@ export default async function AdminPage() {
             </Link>
             <Link
               href="/admin/agenda"
-              className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-areia-50 marca-border marca-shadow hover:bg-areia-100 transition-all group"
+              className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-white marca-border marca-shadow hover:bg-areia-100 transition-all group"
             >
               <Calendar className="w-4 h-4 text-noite-600" />
               <span className="text-sm font-medium text-ink">Gerir agenda</span>
@@ -89,7 +89,7 @@ export default async function AdminPage() {
             />
           </div>
 
-          <div className="rounded-2xl bg-areia-50 marca-border-rich marca-shadow overflow-hidden">
+          <div className="rounded-2xl bg-white marca-border-rich marca-shadow overflow-hidden">
             <table className="w-full">
               <thead className="border-b border-areia-200">
                 <tr>
@@ -174,7 +174,7 @@ function MetricCard({
     warn: "text-amber-700 bg-amber-50",
   };
   return (
-    <div className="rounded-2xl bg-areia-50 marca-border marca-shadow p-6">
+    <div className="rounded-2xl bg-white marca-border marca-shadow p-6">
       <div className={`w-11 h-11 rounded-full flex items-center justify-center mb-4 ${corMap[cor]}`}>
         <Icone className="w-5 h-5" />
       </div>

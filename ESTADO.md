@@ -89,6 +89,26 @@ Está criada uma secção — **Módulo 1**, dentro do A1 — ainda vazia. As 46
 
 ---
 
+## Design — decisão a meio (10set2026, fim da tarde)
+
+Pediste fundo branco e menos linhas. Fiz três coisas, **guardadas no git mas ainda NÃO publicadas** — o site no ar continua como estava:
+
+1. `--background` passou de creme (`#FDFAF4`) para branco puro (`#FFFFFF`) em `app/globals.css`
+2. Os cartões passaram de `bg-areia-50` para `bg-white` (26 sítios); os filetes `.marca-border` ficaram mais esbatidos
+3. A linha por baixo do cabeçalho foi tirada em `components/layout/nav.tsx`, e o fundo dele passou a branco translúcido
+4. No painel, cada linha de aula deixou de trazer a sua borda — separa-se por espaço e realce ao passar o rato
+
+Ficou uma pergunta por responder. Mostraste um recorte do topo da página de login e disseste "isto como está na página de login". A página de login não tem cabeçalho nenhum — só o nome grande sobre branco, com o azulejo a colorir as margens; é de lá que vem o tom creme do topo. Não ficou claro se querias:
+
+- tirar a barra de navegação das páginas internas, deixando só o nome
+- trazer o tom creme do topo de volta às páginas internas
+- o nome sem o símbolo "SP" ao lado, como no login
+
+**Para publicar quando decidires:** `vercel --prod`
+**Para desfazer tudo isto:** `git revert` do commit "design: fundo branco e menos linhas"
+
+---
+
 ## Falta fazer
 
 **Os IDs de vídeo.** Os 30 conteúdos de vídeo estão vazios. Pões cada um no painel, em Gerir aulas.

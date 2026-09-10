@@ -69,7 +69,7 @@ export function PlayerAula({
       )}
 
       {conteudo.tipo === "material" && conteudo.material_url && (
-        <div className="rounded-2xl bg-areia-50 marca-border-rich p-8 mb-8 text-center">
+        <div className="rounded-2xl bg-white marca-border-rich p-8 mb-8 text-center">
           <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-3">
             Material
           </p>
@@ -122,7 +122,7 @@ export function PlayerAula({
         {anterior ? (
           <Link
             href={anterior.href}
-            className="group rounded-xl bg-areia-50 marca-border p-4 flex items-start gap-3 hover:marca-shadow transition-all"
+            className="group rounded-xl bg-white marca-border p-4 flex items-start gap-3 hover:marca-shadow transition-all"
           >
             <ChevronLeft className="w-4 h-4 text-noite-600 mt-1 shrink-0 group-hover:-translate-x-0.5 transition-transform" />
             <div className="min-w-0">
@@ -140,7 +140,7 @@ export function PlayerAula({
         {seguinte ? (
           <Link
             href={seguinte.href}
-            className="group rounded-xl bg-areia-50 marca-border p-4 flex items-start gap-3 justify-end text-right hover:marca-shadow transition-all sm:col-start-2"
+            className="group rounded-xl bg-white marca-border p-4 flex items-start gap-3 justify-end text-right hover:marca-shadow transition-all sm:col-start-2"
           >
             <div className="min-w-0">
               <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-1">

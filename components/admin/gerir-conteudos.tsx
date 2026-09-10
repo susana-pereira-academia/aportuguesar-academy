@@ -77,7 +77,7 @@ export function GerirConteudos({ estacoes }: Props) {
         return (
           <div
             key={estacao.id}
-            className="rounded-2xl bg-areia-50 marca-border marca-shadow overflow-hidden"
+            className="rounded-2xl bg-white marca-border marca-shadow overflow-hidden"
           >
             {/* Cabeçalho da estação */}
             <div className="flex items-center gap-3 px-5 py-4">
@@ -159,7 +159,7 @@ export function GerirConteudos({ estacoes }: Props) {
 
             {/* Secções e aulas */}
             {aberta && (
-              <div className="border-t border-areia-200/50 bg-white/30">
+              <div className="border-t border-areia-200/50 bg-white/30 py-1">
                 {/* aulas soltas, fora de qualquer secção */}
                 {estacao.soltas.map((c) => (
                   <LinhaAula
@@ -427,7 +427,7 @@ function FormSeccao({
   }
 
   return (
-    <form onSubmit={submeter} className="rounded-xl bg-areia-50 marca-border p-4 space-y-3">
+    <form onSubmit={submeter} className="rounded-xl bg-white marca-border p-4 space-y-3">
       <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-1">
         {inicial ? "Editar secção" : "Nova secção"}
       </p>
@@ -519,7 +519,7 @@ function FormEstacao({
   }
 
   return (
-    <form onSubmit={submeter} className="rounded-2xl bg-areia-50 marca-border p-5 space-y-3">
+    <form onSubmit={submeter} className="rounded-2xl bg-white marca-border p-5 space-y-3">
       <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-1">
         {inicial
           ? `Editar ${VOC.estacao.sMin}`
@@ -591,8 +591,8 @@ function LinhaAula({
     conteudo.tipo === "video" ? Video : conteudo.tipo === "material" ? FileText : CheckCircle2;
 
   return (
-    <div className={cn("border-t border-areia-200/50", recuada && "pl-5")}>
-      <div className="flex items-center gap-3 px-5 py-3">
+    <div className={cn(recuada && "pl-5")}>
+      <div className="flex items-center gap-3 px-5 py-2.5 rounded-lg hover:bg-areia-50/70 transition-colors">
         <span className="text-[10px] text-ink-faint w-6">
           {conteudo.numero}.
         </span>
@@ -724,7 +724,7 @@ function FormAula({
   }
 
   return (
-    <form onSubmit={submeter} className="rounded-xl bg-areia-50 marca-border p-4 space-y-3">
+    <form onSubmit={submeter} className="rounded-xl bg-white marca-border p-4 space-y-3">
       <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-1">
         {inicial
           ? `Editar ${VOC.conteudo.sMin}`

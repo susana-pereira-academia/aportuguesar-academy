@@ -65,7 +65,7 @@ export function Sidebar({ estacoes, idsFeitos, progressoTotal }: Props) {
       </div>
 
       {/* Atalhos: Agenda + Gravações */}
-      <nav className="py-2 border-b border-areia-200/30">
+      <nav className="py-2 border-b border-areia-200/20">
         <AtalhoLink
           href="/jornada/agenda"
           icone={Calendar}
@@ -89,10 +89,10 @@ export function Sidebar({ estacoes, idsFeitos, progressoTotal }: Props) {
           ).length;
 
           return (
-            <div key={estacao.id} className="border-b border-areia-200/30 last:border-0">
+            <div key={estacao.id} className="border-b border-areia-200/20 last:border-0">
               <button
                 onClick={() => toggle(estacao.slug)}
-                className="w-full flex items-center gap-3 px-6 py-4 text-left hover:bg-areia-50 transition-colors"
+                className="w-full flex items-center gap-3 px-6 py-4 text-left hover:bg-white transition-colors"
               >
                 <span className="text-[10px] font-semibold text-dourado-700 shrink-0 w-6">
                   {String(estacao.numero).padStart(2, "0")}
@@ -213,7 +213,7 @@ function LinhaAula({
           recuada ? "pl-16" : "pl-14",
           ativa
             ? "bg-areia-200/70 text-noite-800 font-medium border-l-2 border-dourado-500"
-            : "text-ink-soft hover:bg-areia-50 hover:text-ink border-l-2 border-transparent",
+            : "text-ink-soft hover:bg-white hover:text-ink border-l-2 border-transparent",
           feito && !ativa && "text-ink-faint",
         )}
       >
@@ -246,7 +246,7 @@ function AtalhoLink({
         "flex items-center gap-3 px-6 py-3 text-sm transition-colors border-l-2",
         ativo
           ? "bg-areia-200/70 text-noite-800 font-medium border-dourado-500"
-          : "text-ink-soft hover:bg-areia-50 hover:text-ink border-transparent",
+          : "text-ink-soft hover:bg-white hover:text-ink border-transparent",
       )}
     >
       <Icone className="w-4 h-4 text-noite-500 shrink-0" />

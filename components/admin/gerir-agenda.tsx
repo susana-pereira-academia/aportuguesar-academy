@@ -43,7 +43,7 @@ export function GerirAgenda({ encontros }: Props) {
         encontros.map((e) => (
           <div
             key={e.id}
-            className="rounded-2xl bg-areia-50 marca-border marca-shadow overflow-hidden"
+            className="rounded-2xl bg-white marca-border marca-shadow overflow-hidden"
           >
             <div className="flex items-start gap-4 px-5 py-4">
               <div className="w-11 h-11 rounded-full bg-noite-gradient flex items-center justify-center shrink-0">
@@ -180,7 +180,7 @@ function FormEncontro({
   }
 
   return (
-    <form onSubmit={submeter} className="rounded-xl bg-areia-50 marca-border p-4 space-y-3">
+    <form onSubmit={submeter} className="rounded-xl bg-white marca-border p-4 space-y-3">
       <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-1">
         {inicial ? "Editar encontro" : "Novo encontro"}
       </p>

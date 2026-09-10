@@ -25,7 +25,7 @@ export default async function GravacoesPage() {
       </div>
 
       {comGravacao.length === 0 ? (
-        <div className="rounded-2xl bg-areia-50 marca-border p-10 text-center">
+        <div className="rounded-2xl bg-white marca-border p-10 text-center">
           <Video className="w-8 h-8 text-noite-500 mx-auto mb-3" />
           <p className="font-serif italic text-2xl font-medium noite-text-rich mb-2">
             Ainda sem gravações
@@ -47,7 +47,7 @@ export default async function GravacoesPage() {
 
 function CardGravacao({ encontro }: { encontro: Encontro }) {
   return (
-    <article className="rounded-2xl bg-areia-50 marca-border marca-shadow overflow-hidden">
+    <article className="rounded-2xl bg-white marca-border marca-shadow overflow-hidden">
       <div className="aspect-video bg-ink">
         <iframe
           src={`https://player.vimeo.com/video/${encontro.vimeo_id}?byline=0&portrait=0&title=0`}

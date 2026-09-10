@@ -39,7 +39,7 @@ export function AdicionarAluna() {
   }
 
   return (
-    <div className="rounded-2xl bg-areia-50 marca-border marca-shadow p-6 mb-10">
+    <div className="rounded-2xl bg-white marca-border marca-shadow p-6 mb-10">
       <div className="mb-4">
         <p className="text-[10px] tracking-[0.3em] uppercase text-dourado-700 mb-2">
           Adicionar aluna
