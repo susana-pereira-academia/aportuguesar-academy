@@ -1,35 +1,34 @@
 // ============================================================
 // CONFIGURAÇÃO DA TUA PLATAFORMA
 // ------------------------------------------------------------
-// A skill /esystem-jornada preenche isto a partir do teu
-// desenho da Missão 2 (ou perguntando-te ali mesmo).
+// Preenchido a partir do desenho da Missão 2 (eSystem — Desenho v1).
 // Edita à mão sempre que quiseres afinar textos.
 // ============================================================
 
 export const PLATAFORMA = {
   /** Nome que aparece no topo, no separador do browser e como título grande no login */
-  nome: "eSystem",
+  nome: "Aportuguesar Academy",
 
   /** Iniciais (1-3 letras) para o logo pequeno */
-  iniciais: "eS",
+  iniciais: "AA",
 
   /** Marca-mãe (chapéu pequeno acima do nome grande no login) — deixa string vazia para esconder */
-  marcaMae: "A MINHA ESCOLA",
+  marcaMae: "SP ACADEMIA",
 
   /** Frase-âncora — não aparece no login, mas fica guardada para landing ou emails */
-  fraseAncora: "A tua transformação, com sistema por baixo.",
+  fraseAncora: "Um pouco de cada vez, e um dia falas português.",
 
   /** Subtítulo curto */
-  subtitulo: "Um método próprio, uma jornada guiada, uma comunidade de founders.",
+  subtitulo: "Entra, erra em voz alta e avança ao teu ritmo.",
 
   /** Nome de quem tu és — a mentora atrás da plataforma */
   mentora: {
-    nome: "A Mentora",
-    email: "tu@teudominio.pt",
+    nome: "Susana Pereira",
+    email: "portuguescomsusana@gmail.com",
   },
 
   /** Password inicial que a mentora dá às alunas para o primeiro login. */
-  passwordInicial: "muda-me-2026",
+  passwordInicial: "escola2026",
 
   /** Vocabulário que usas para os blocos da tua jornada. */
   vocabulario: {
