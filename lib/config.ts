@@ -27,8 +27,9 @@ export const PLATAFORMA = {
     email: "portuguescomsusana@gmail.com",
   },
 
-  /** Password inicial que a mentora dá às alunas para o primeiro login. */
-  passwordInicial: "escola2026",
+  /** Password inicial das alunas. Vem da variável de ambiente PASSWORD_INICIAL,
+   *  para não ficar escrita no repositório. Ver .env.local e o Vercel. */
+  passwordInicial: "",
 
   /** Vocabulário que usas para os blocos da tua jornada. */
   vocabulario: {

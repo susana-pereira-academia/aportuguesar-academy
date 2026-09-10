@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { PLATAFORMA } from "@/lib/config";
 
 export function AdicionarAluna() {
   const router = useRouter();
@@ -46,7 +45,7 @@ export function AdicionarAluna() {
           Adicionar aluna
         </p>
         <p className="text-sm text-ink-soft">
-          Escreve o email. A password inicial é <strong>{PLATAFORMA.passwordInicial}</strong> — ela pode mudar depois de entrar.
+          Escreve o email. A password inicial aparece aqui assim que a aluna for criada — ela pode mudar depois de entrar.
         </p>
       </div>
 

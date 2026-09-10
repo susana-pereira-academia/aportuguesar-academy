@@ -12,7 +12,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ erro: "Email obrigatório." }, { status: 400 });
   }
 
-  const password = process.env.PASSWORD_INICIAL ?? PLATAFORMA.passwordInicial;
+  const password = process.env.PASSWORD_INICIAL || PLATAFORMA.passwordInicial;
+
+  if (!password) {
+    return NextResponse.json(
+      { erro: "Falta a variável de ambiente PASSWORD_INICIAL." },
+      { status: 500 },
+    );
+  }
+
   const admin = createAdminClient();
 
   const { data, error } = await admin.auth.admin.createUser({
