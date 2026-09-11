@@ -28,9 +28,9 @@ A plataforma de formação da SP Academia, construída com a skill `/esystem-jor
 Entras em todos com o login Google `portuguescomsusana@gmail.com`.
 
 > **Nenhuma password se escreve neste documento.** Ele vive num repositório
-> público no GitHub: o que aqui ficar, fica à vista de toda a gente. A tua
-> password de mentora está no teu gestor de passwords; a password inicial das
-> alunas está no Vercel, em `PASSWORD_INICIAL`.
+> público no GitHub: o que aqui ficar, fica à vista de toda a gente. As duas —
+> a de mentora e a inicial das alunas — vivem no teu gestor de passwords. A do
+> Vercel está guardada como *Secret* e não se consegue voltar a ler de lá.
 
 ---
 
@@ -54,7 +54,10 @@ NEXT_PUBLIC_MENTORA_EMAIL=portuguescomsusana@gmail.com
 PASSWORD_INICIAL=<vai buscar ao Vercel>
 ```
 
-A **password inicial** vais buscá-la ao Vercel: Settings → Environment Variables → `PASSWORD_INICIAL`. É a que o painel mostra quando crias uma aluna.
+A **password inicial** está guardada no Vercel como *Secret*, e um Secret **não
+se consegue voltar a ler** — nem no painel, nem por comando. Tem de estar no teu
+gestor de passwords. Se a perderes, não a recuperas: defines uma nova com
+`vercel env rm` + `vercel env add` e publicas.
 
 A **chave do Supabase** vais buscá-la ao Supabase: Settings → API Keys → Secret keys → clica no olho para revelar. Não a escrevi aqui de propósito: é a chave que dá acesso total à base de dados, e este documento sincroniza pelo iCloud.
 
