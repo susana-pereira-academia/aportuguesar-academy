@@ -145,7 +145,9 @@ passa a ser a secção que as arruma. Fica para essa altura.
 Há uma secção vazia chamada "Módulo 1" dentro do A1, dos primeiros testes.
 Apaga-a no painel — apagar uma secção não mexe em aula nenhuma.
 
-**As alunas de teste.** Há duas contas de teste na base de dados, criadas a 10set2026 com a password inicial antiga. Apaga-as no painel quando já não precisares delas.
+**As alunas de teste.** Feito a 11set2026: a conta `sudasipe9@gmail.com` foi
+apagada. Havia só uma, não duas — o painel conta a conta de mentora como aluna,
+por isso mostra sempre um número acima do real.
 
 **A sala da sessão de tira-dúvidas.** As sessões já estão criadas (ver abaixo),
 mas sem link. Quando tiveres a sala do Zoom, põe o link em cada uma, no painel,
