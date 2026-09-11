@@ -23,9 +23,14 @@ A plataforma de formação da SP Academia, construída com a skill `/esystem-jor
 | Alojamento | Vercel, projeto `sp-academia/aportuguesar-academy` |
 | Base de dados | Supabase, projeto `dxngdiabytgusylatuue` (lá dentro chama-se "Aportuguesar Acadmy", com typo — inofensivo) |
 | Domínio | Cloudflare, registado a 10set2026 |
-| Conta de mentora | portuguescomsusana@gmail.com · password `escola2026` |
+| Conta de mentora | portuguescomsusana@gmail.com (a password não se escreve aqui — ver abaixo) |
 
 Entras em todos com o login Google `portuguescomsusana@gmail.com`.
+
+> **Nenhuma password se escreve neste documento.** Ele vive num repositório
+> público no GitHub: o que aqui ficar, fica à vista de toda a gente. A tua
+> password de mentora está no teu gestor de passwords; a password inicial das
+> alunas está no Vercel, em `PASSWORD_INICIAL`.
 
 ---
 
@@ -46,10 +51,12 @@ NEXT_PUBLIC_SUPABASE_URL=https://dxngdiabytgusylatuue.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_NbXn2hADCw1fA1BGuqT0_g_LvQctv4g
 SUPABASE_SERVICE_ROLE_KEY=<vai buscar>
 NEXT_PUBLIC_MENTORA_EMAIL=portuguescomsusana@gmail.com
-PASSWORD_INICIAL=escola2026
+PASSWORD_INICIAL=<vai buscar ao Vercel>
 ```
 
-A chave que falta vais buscá-la ao Supabase: Settings → API Keys → Secret keys → clica no olho para revelar. Não a escrevi aqui de propósito: é a chave que dá acesso total à base de dados, e este documento sincroniza pelo iCloud.
+A **password inicial** vais buscá-la ao Vercel: Settings → Environment Variables → `PASSWORD_INICIAL`. É a que o painel mostra quando crias uma aluna.
+
+A **chave do Supabase** vais buscá-la ao Supabase: Settings → API Keys → Secret keys → clica no olho para revelar. Não a escrevi aqui de propósito: é a chave que dá acesso total à base de dados, e este documento sincroniza pelo iCloud.
 
 Depois `npm run dev` e abre localhost:3000.
 
@@ -115,7 +122,7 @@ Ficou uma pergunta por responder. Mostraste um recorte do topo da página de log
 
 **As secções restantes.** Falta criar Módulo 2, 3 e 4 no A1, e os quatro módulos de cada um dos outros cinco níveis.
 
-**A password inicial.** O repositório é público e o histórico do git ainda guarda o commit antigo com `escola2026` lá dentro. Tirei-a do código atual (agora vem da variável de ambiente), mas o histórico fica. A saída limpa é mudares a password: mudas no `.env.local` e no Vercel, e nada no código precisa de mexer.
+**As alunas de teste.** Há duas contas de teste na base de dados, criadas a 10set2026 com a password inicial antiga. Apaga-as no painel quando já não precisares delas.
 
 **A sessão mensal de tira-dúvidas.** É transversal a todos os níveis, pertence à Agenda e não a nenhuma estação. Ainda não está criada.
 

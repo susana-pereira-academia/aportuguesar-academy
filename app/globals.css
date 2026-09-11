@@ -128,3 +128,48 @@
     background-repeat: repeat;
   }
 }
+
+@layer components {
+  /* --- Azulejo de fundo das páginas internas ------------------
+     O mesmo padrão do login, mas mais leve: nas páginas internas
+     há texto por cima o tempo todo, e o login é só uma paragem.
+
+     Três botões para afinar, e é aqui que se mexe:
+       --azulejo-forca        quanto se vê no total (0 = nada, 1 = como no login)
+       --azulejo-veu-topo     quanto se alivia na faixa de cima, por trás do nome
+       --azulejo-altura-topo  até onde desce esse alívio                      */
+  .azulejo-fundo {
+    --azulejo-forca: 0.5;
+    --azulejo-veu-topo: 0.8;
+    --azulejo-altura-topo: 180px;
+  }
+
+  /* A máscara abre o centro e deixa o padrão nas margens — a mesma
+     ideia da página de login, com a elipse um pouco mais larga
+     porque aqui a coluna da esquerda já ocupa espaço. */
+  .azulejo-fundo .azulejo-camada {
+    opacity: var(--azulejo-forca);
+    -webkit-mask-image: radial-gradient(
+      ellipse 62% 56% at 56% 54%,
+      transparent 38%,
+      black 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 62% 56% at 56% 54%,
+      transparent 38%,
+      black 100%
+    );
+  }
+
+  /* Um véu branco por cima da faixa do topo. Faz-se com um degradé
+     e não com uma segunda máscara: mask-composite ainda falha em
+     browsers antigos, e a falha seria o padrão a invadir o centro. */
+  .azulejo-fundo .azulejo-veu {
+    height: var(--azulejo-altura-topo);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, var(--azulejo-veu-topo)),
+      rgba(255, 255, 255, 0)
+    );
+  }
+}
