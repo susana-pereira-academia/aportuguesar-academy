@@ -8,16 +8,7 @@ export function Footer() {
     >
       <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink-faint">
         <p>
-          © {new Date().getFullYear()} {PLATAFORMA.nome}. Construído no{" "}
-          <a
-            href="https://claude.com/claude-code"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-noite-700 hover:text-noite-600"
-          >
-            Claude Code
-          </a>{" "}
-          via eFounder.
+          © {new Date().getFullYear()} {PLATAFORMA.nome}
         </p>
         <p className="tracking-[0.2em] uppercase text-[10px]">
           {PLATAFORMA.mentora.nome}
