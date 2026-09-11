@@ -96,23 +96,33 @@ Está criada uma secção — **Módulo 1**, dentro do A1 — ainda vazia. As 46
 
 ---
 
-## Design — decisão a meio (10set2026, fim da tarde)
+## Design — fechado e publicado (11set2026)
 
-Pediste fundo branco e menos linhas. Fiz três coisas, **guardadas no git mas ainda NÃO publicadas** — o site no ar continua como estava:
+O topo das páginas internas passou a ser como o da página de login: o nome ao
+centro em serifa itálica com o filete dourado por baixo, **sem barra de
+navegação e sem o monograma SP**. Os botões (A minha jornada, Painel,
+Definições, Sair) pousam no canto superior direito, sobre o azulejo; em ecrã
+estreito descem para cima do nome.
 
-1. `--background` passou de creme (`#FDFAF4`) para branco puro (`#FFFFFF`) em `app/globals.css`
-2. Os cartões passaram de `bg-areia-50` para `bg-white` (26 sítios); os filetes `.marca-border` ficaram mais esbatidos
-3. A linha por baixo do cabeçalho foi tirada em `components/layout/nav.tsx`, e o fundo dele passou a branco translúcido
-4. No painel, cada linha de aula deixou de trazer a sua borda — separa-se por espaço e realce ao passar o rato
+O azulejo do login passa a pintar as margens de todas as páginas internas, mas
+mais leve do que lá — aqui há texto por cima o tempo todo. A coluna da esquerda
+deixou de ser creme e ficou branca.
 
-Ficou uma pergunta por responder. Mostraste um recorte do topo da página de login e disseste "isto como está na página de login". A página de login não tem cabeçalho nenhum — só o nome grande sobre branco, com o azulejo a colorir as margens; é de lá que vem o tom creme do topo. Não ficou claro se querias:
+**A página de login não mudou:** o logótipo SP fica lá, inteiro.
 
-- tirar a barra de navegação das páginas internas, deixando só o nome
-- trazer o tom creme do topo de volta às páginas internas
-- o nome sem o símbolo "SP" ao lado, como no login
+### Afinar o azulejo
 
-**Para publicar quando decidires:** `vercel --prod`
-**Para desfazer tudo isto:** `git revert` do commit "design: fundo branco e menos linhas"
+Está tudo reunido em `app/globals.css`, na classe `.azulejo-fundo`, com três
+valores comentados em português:
+
+| Valor | O que faz | Está em |
+|---|---|---|
+| `--azulejo-forca` | quanto se vê no total (0 = nada, 1 = como no login) | `0.5` |
+| `--azulejo-veu-topo` | quanto se alivia a faixa de cima, por trás do nome | `0.8` |
+| `--azulejo-altura-topo` | até onde desce esse alívio | `180px` |
+
+Mexes num número, gravas, e a página recarrega sozinha se tiveres o
+`npm run dev` a correr.
 
 ---
 
@@ -120,11 +130,65 @@ Ficou uma pergunta por responder. Mostraste um recorte do topo da página de log
 
 **Os IDs de vídeo.** Os 30 conteúdos de vídeo estão vazios. Pões cada um no painel, em Gerir aulas.
 
-**As secções restantes.** Falta criar Módulo 2, 3 e 4 no A1, e os quatro módulos de cada um dos outros cinco níveis.
+**As secções.** Não há nada a fazer aqui por agora, e o ponto que aqui estava
+estava errado. Em cada nível, os "Módulos" **já são aulas** — "Módulo 1 — A1" é
+uma aula, não uma secção. Criar secções com esses nomes punha, na mesma coluna,
+uma secção "Módulo 2" ao lado de uma aula "Módulo 2", vazia.
+
+As secções só ganham sentido com a migração do curso: no WordPress, o que aqui é
+*uma* aula chamada "Módulo 1 — A1" são na verdade **11 aulas**. Aí, "Módulo 1"
+passa a ser a secção que as arruma. Fica para essa altura.
+
+Há uma secção vazia chamada "Módulo 1" dentro do A1, dos primeiros testes.
+Apaga-a no painel — apagar uma secção não mexe em aula nenhuma.
 
 **As alunas de teste.** Há duas contas de teste na base de dados, criadas a 10set2026 com a password inicial antiga. Apaga-as no painel quando já não precisares delas.
 
-**A sessão mensal de tira-dúvidas.** É transversal a todos os níveis, pertence à Agenda e não a nenhuma estação. Ainda não está criada.
+**A sala da sessão de tira-dúvidas.** As sessões já estão criadas (ver abaixo),
+mas sem link. Quando tiveres a sala do Zoom, põe o link em cada uma, no painel,
+em Gerir agenda. Até lá a plataforma escreve à aluna "O link vai ser adicionado
+antes do encontro".
+
+**A sessão de 31 de dezembro.** A regra — última quinta-feira do mês — calha,
+nesse mês, na noite de passagem de ano. Apaga-a ou muda-a para outro dia.
+
+**As duas passwords.** Ver a secção "Segurança" mais abaixo.
+
+---
+
+## A agenda
+
+A **Sessão de tira-dúvidas** repete-se na **última quinta-feira de cada mês, às
+18h**, 60 minutos, Zoom. A plataforma não tem regra de repetição: cada sessão é
+uma entrada própria. Estão criadas **doze**, de setembro de 2026 a agosto de
+2027 — quando estiverem a acabar, criam-se as doze seguintes.
+
+As horas ficam guardadas em UTC e mostradas em hora de Lisboa, portanto a
+mudança da hora em outubro e em março está tratada: são 18h de Lisboa em todos
+os meses, no verão e no inverno.
+
+---
+
+## Segurança
+
+A password `escola2026` esteve escrita neste documento, num repositório público
+do GitHub, ao lado do email da mentora e do endereço do Supabase. Foi retirada a
+11set2026, mas **quem a tenha visto continua a saber**. Por isso:
+
+1. **A password da conta de mentora** muda-se no próprio site, em Definições.
+2. **A password inicial das alunas** muda-se no Vercel e no `.env.local`:
+
+```
+vercel env rm PASSWORD_INICIAL production --yes
+vercel env add PASSWORD_INICIAL production
+vercel deploy --prod --yes
+```
+
+A publicação no fim não é opcional: as variáveis de ambiente só entram no site na
+publicação seguinte. Mudar a `PASSWORD_INICIAL` **não mexe em contas já criadas** —
+só serve para as alunas novas.
+
+Nenhuma password se escreve neste documento.
 
 ---
 
