@@ -15,8 +15,11 @@ export const PLATAFORMA = {
   /** Marca-mãe (chapéu pequeno acima do nome grande no login) — deixa string vazia para esconder */
   marcaMae: "SP ACADEMIA",
 
-  /** Frase-âncora — não aparece no login, mas fica guardada para landing ou emails */
-  fraseAncora: "Um pouco de cada vez, e um dia falas português.",
+  /** Frase-âncora — é a descrição da página (app/layout.tsx). Não se vê dentro
+   *  da plataforma: lê-se no Google e na pré-visualização de quem partilha o
+   *  link. Escreve-a para quem ainda não entrou. Até 160 caracteres. */
+  fraseAncora:
+    "Um pouco de cada vez, e um dia falas português. Sem pressa e sem vergonha de errar.",
 
   /** Subtítulo curto */
   subtitulo: "Entra, erra em voz alta e avança ao teu ritmo.",
